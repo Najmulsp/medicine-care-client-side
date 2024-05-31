@@ -1,6 +1,19 @@
+import { useEffect, useState } from 'react';
+
+
 
 
 const PopularCamps = () => {
+    const [camps, setCamps] = useState([]);
+    console.log(camps)
+    useEffect(()=>{
+        fetch('camps.json')
+        .then(res=> res.json())
+        .then(data=>{
+            setCamps(data)
+        })
+    },[])
+
     return (
         <div>
             
@@ -9,106 +22,3 @@ const PopularCamps = () => {
 };
 
 export default PopularCamps;
-
-// [
-//     {
-//         "name": "Child Health Camp",
-//         "image": "https://i.ibb.co/RP3Kw1d/camps-1.jpg",
-//         "fees": "Free",
-//         "date": "2024-06-15",
-//         "location": "Central Park, New York",
-//         "healthcarer": "Dr. John Doe",
-//         "participants": 150,
-//         "description": "Join us for a comprehensive health checkup at Central Park."
-//     },
-//     {
-//         "name": "Dental Care Camp",
-//         "image": "https://i.ibb.co/2MVzF9V/camps-7.jpg",
-//         "fees": "$20",
-//         "date": "2024-07-10",
-//         "location": "Community Center, Los Angeles",
-//         "healthcarer": "Dr. Jane Smith",
-//         "participants": 75,
-//         "description": "Get dental checkups and consultations at the Community Center."
-//     },
-//     {
-//         "name": "Diabetes Awareness Camp",
-//         "image": "https://i.ibb.co/CtfQYy8/camps-3.jpg",
-//         "fees": "Free",
-//         "date": "2024-08-05",
-//         "location": "Public Library, Chicago",
-//         "healthcarer": "Dr. Emily Johnson",
-//         "participants": 120,
-//         "description": "Ensure your vision health with free screenings at the Public Library."
-//     },
-//     {
-//         "name": "Heart Health Camp",
-//         "image": "https://i.ibb.co/w7vHhdR/camps-4.jpg",
-//         "fees": "$30",
-//         "date": "2024-09-12",
-//         "location": "Sports Complex, Miami",
-//         "healthcarer": "Dr. Michael Brown",
-//         "participants": 60,
-//         "description": "Attend our Heart Health Camp for important cardiac assessments."
-//     },
-//     {
-//         "name": "Vision Screening Camp",
-//         "image": "https://i.ibb.co/c8zZM27/camps-5.jpg",
-//         "fees": "$15",
-//         "date": "2024-10-22",
-//         "location": "City Hall, San Francisco",
-//         "healthcarer": "Dr. Sarah Davis",
-//         "participants": 200,
-//         "description": "Learn about diabetes prevention and management at City Hall."
-//     },
-//     {
-//         "name": "Health Checkup Camp",
-//         "image": "https://i.ibb.co/5RBbqJ2/camps-6.jpg",
-//         "fees": "Free",
-//         "date": "2024-11-18",
-//         "location": "School Auditorium, Houston",
-//         "healthcarer": "Dr. David Wilson",
-//         "participants": 180,
-//         "description": "Ensure your child's health with our dedicated camp in Houston."
-//     },
-//     {
-//         "name": "Women's Health Camp",
-//         "image": "https://i.ibb.co/41Lzrfh/camps-2.jpg",
-//         "fees": "$25",
-//         "date": "2024-12-05",
-//         "location": "Cultural Center, Phoenix",
-//         "healthcarer": "Dr. Laura Martinez",
-//         "participants": 90,
-//         "description": "Focused on women's health, join us at the Cultural Center."
-//     },
-//     {
-//         "name": "Mental Health Camp",
-//         "image": "https://example.com/image8.jpg",
-//         "fees": "Free",
-//         "date": "2024-06-20",
-//         "location": "Community Park, Philadelphia",
-//         "healthcarer": "Dr. Richard Lee",
-//         "participants": 110,
-//         "description": "Promoting mental well-being, our camp offers various resources."
-//     },
-//     {
-//         "name": "Nutrition and Wellness Camp",
-//         "image": "https://example.com/image9.jpg",
-//         "fees": "$10",
-//         "date": "2024-07-25",
-//         "location": "Fitness Center, San Diego",
-//         "healthcarer": "Dr. Angela Kim",
-//         "participants": 140,
-//         "description": "Learn about nutrition and wellness at our San Diego camp."
-//     },
-//     {
-//         "name": "Elderly Care Camp",
-//         "image": "https://example.com/image10.jpg",
-//         "fees": "Free",
-//         "date": "2024-08-30",
-//         "location": "Senior Center, Dallas",
-//         "healthcarer": "Dr. William Moore",
-//         "participants": 130,
-//         "description": "Focused on elderly care, join us at the Senior Center in Dallas."
-//     }
-// ]
