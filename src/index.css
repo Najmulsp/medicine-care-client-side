@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
+#profileImg{
+    position: relative;
+    }
+    
+    #profileImg:hover #dropdown{
+      display: block;
+      position: absolute;
+    }
+
+    .menu-button{
+      height: 50px;
+    }
+    .dropdown-menu{
+    display: none;
+    }
+    
+    #right-menu:hover .dropdown-menu{
+      display: block;
+    }
+    
+    .dropdown-menu Link{
+    background-color: aqua;
+    padding: 10px;
+    display: block;
+    margin-top: 10px;
+    }

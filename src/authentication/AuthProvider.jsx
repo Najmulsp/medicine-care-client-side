@@ -42,28 +42,29 @@ const AuthProvider = ({children}) => {
         return   sendEmailVerification(auth.currentUser)
         }
         // observer
-    // useEffect(()=>{
-    //     const unSubscribe =    onAuthStateChanged(auth, (currentUser)=>{
-    //         setUser(currentUser);
-    //         // console.log('currentUser: ', currentUser)
-    //         if(currentUser){
-    //             // get token from server and store
-    //             // console.log(currentUser.email)
-    //             axiosPublic.post('/jwt', currentUser)
-    //             .then(res=>{
-    //                if(res.data.token){
-    //                 localStorage.setItem('access-token',res.data.token)
-    //                } 
-    //             })
-    //         }
-    //         else{
-    //             // to do: remove token if stored on client side
-    //             localStorage.removeItem('access-Token')
-    //         }
-    //         setLoading(false);
-    //     })
-    //     return unSubscribe;
-    // }, [axiosPublic])
+    useEffect(()=>{
+        const unSubscribe =    onAuthStateChanged(auth, (currentUser)=>{
+            setUser(currentUser);
+            // console.log('currentUser: ', currentUser)
+            if(currentUser){
+                // get token from server and store
+                // console.log(currentUser.email)
+                // axiosPublic.post('/jwt', currentUser)
+                // .then(res=>{
+                //    if(res.data.token){
+                //     localStorage.setItem('access-token',res.data.token)
+                //    } 
+                // })
+            }
+            else{
+                // to do: remove token if stored on client side
+                localStorage.removeItem('access-Token')
+            }
+            setLoading(false);
+        })
+        return unSubscribe;
+    }, [])  
+    // axiosPublic
 
         
         // google login
