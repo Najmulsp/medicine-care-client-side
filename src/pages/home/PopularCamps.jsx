@@ -46,7 +46,10 @@ const PopularCamps = () => {
                   <p className="flex items-center gap-1">
                     <FaLocationDot className="text-cyan-400" /> {camp.location}
                   </p>
-                  <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">Details <FaArrowRightLong /></button>
+                  <Link to={`/popularCamps/${camp._id}`}>
+                  <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
+                    Details <FaArrowRightLong />
+                  </button></Link>
                 </div>
               </div>
             </div>
