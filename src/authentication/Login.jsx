@@ -66,14 +66,14 @@ const Login = () => {
       <div className="hero-content flex-col lg:flex-row lg:w-4/12 border shadow-2xl">
         
         <div className="card shrink-0 w-full max-w-sm ">
-          <h1 className="text-4xl text-center text-yellow-600 font-bold p-2">Log in</h1>
+          <h1 className="text-4xl text-center text-sky-300 font-bold p-2">Log in</h1>
           <button
             onClick={() =>
               handleGoogleLogin()
             }
             aria-label="Login with Google"
             type="button"
-            className="flex  mt-4 items-center justify-center w-9/12 mx-auto py-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600 bg-yellow-600 bg-opacity-70"
+            className="flex  mt-4 items-center justify-center w-9/12 mx-auto py-4 space-x-4 border rounded-md bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-500 hover:bg-gradient-to-br dark:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const Login = () => {
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-white">Email</span>
               </label>
               <input
                 name="email"
@@ -99,7 +99,7 @@ const Login = () => {
             </div>
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-white">Password</span>
               </label>
               <input
                 name="password"
@@ -121,18 +121,22 @@ const Login = () => {
               
             </div>
             
-          
+            <div className="form-control mt-6">
+              <input
+                type="submit"
+                value="Join Us"
+                className="btn bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-500 hover:bg-gradient-to-br dark:text-white"
+              />
+            </div>
           </form>
 
           <div className="text-center">
-            <p className="dark:text-black">
-              New here?{" "}
+            <p className="dark:text-white">
+              New here?{" "}   
               <Link
                 to="/register"
-                className="text-yellow-600 font-bold underline"
-              >
-                Create a New Account
-              </Link>
+                className="text-sky-300 font-bold underline"
+              > Create a New Account</Link>
             </p>
           </div>
         </div>

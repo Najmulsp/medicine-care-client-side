@@ -28,7 +28,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/menu">Available Camps</NavLink>
+        <NavLink to="/availableCamps">Available Camps</NavLink>
       </li>
       <li>
         <NavLink to="/dashboard">DASHBOARD</NavLink>
@@ -148,26 +148,6 @@ const Navbar = () => {
           </label>
           {user ? (
             <div id="profileImg">
-              {/* <img
-              className="w-12 md:w-12 lg:w-14  rounded-full "
-              alt="profile picture"
-              src={
-                user?.photoURL ||
-                "https://i.ibb.co/RPpmvwb/images-blank-profile.png"
-              }
-            /> */}
-
-              {/* <div id="dropdown" className=" w-28 lg:w-40 rounded-lg z-30">
-              <h1 className="p-2 bg-purple-400 dark:bg-gradient-to-r from-yellow-600 via-purple-600 to-purple-700 rounded-lg text-center font-semibold  w-full">
-                {user.displayName || "user name not found"}
-              </h1>
-              <button
-                onClick={handleLogout}
-                className="btn w-full bg-yellow-600 dark:bg-gradient-to-r from-purple-500 via-purple-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-purple-300"
-              >
-                Log Out
-              </button>
-            </div> */}
               <div className="dropdown dropdown-hover dropdown-end">
                 <div tabIndex={0} role="button">
                   <img
@@ -184,17 +164,17 @@ const Navbar = () => {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li className="text-center">
-                  <h1 className="p-2 bg-purple-400 dark:bg-gradient-to-r from-yellow-600 via-purple-600 to-purple-700 rounded-lg  font-semibold  w-full">
+                  <h1 className="p-2 btn text-white  bg-purple-400 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 rounded-lg  font-semibold  w-full">
                 {user.displayName || "user name not found"}
               </h1>
                   </li>
-                  <li>
-                    <Link to="/" className="p-2 bg-purple-400 dark:bg-gradient-to-r from-yellow-600 via-purple-600 to-purple-700 rounded-lg  font-semibold  w-full">Dashboard</Link>
+                  <li className=" ">
+                    <Link to="/" className="p-2 btn text-white bg-purple-400 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 rounded-lg  font-semibold  w-full">Dashboard</Link>
                   </li>
                   <li>
                   <button
                 onClick={handleLogout}
-                className="btn w-full bg-yellow-600 dark:bg-gradient-to-r from-purple-500 via-purple-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-purple-300"
+                className="btn w-full text-white bg-yellow-600 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
               >
                 Log Out
               </button>
@@ -204,7 +184,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              className="btn px-6 bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-purple-300"
+              className="btn px-6 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
               to="/login"
             >
               Login

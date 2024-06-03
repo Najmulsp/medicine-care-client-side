@@ -6,6 +6,7 @@ import Home from "../pages/home/Home";
 import ErrorPage from "../layout/ErrorPage";
 import Login from "../authentication/Login";
 import Register from "../authentication/Register";
+import AvailableCamps from "../pages/availableCamps/AvailableCamps";
 
 export  const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export  const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
+        },
+        {
+            path: "/availableCamps",
+            element: <AvailableCamps></AvailableCamps>,
         },
         {
             path: "/login",

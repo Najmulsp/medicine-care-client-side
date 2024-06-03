@@ -74,14 +74,14 @@ const Register = () => {
       <div className="hero-content flex-col lg:flex-row-reverse lg:w-5/12 border shadow-2xl my-10">
         
         <div className="card shrink-0 w-full max-w-sm ">
-          <h1 className="text-4xl text-center text-yellow-600 font-bold p-2">Register</h1>
+          <h1 className="text-4xl text-center text-sky-300 font-bold p-2">Register</h1>
           <button
             onClick={() =>
               handleGoogleLogin()
             }
             aria-label="Login with Google"
             type="button"
-            className="flex  mt-4 items-center justify-center w-9/12 mx-auto py-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600 bg-yellow-600 bg-opacity-70"
+            className="flex  mt-4 items-center justify-center w-9/12 mx-auto py-4 space-x-4 border rounded-md bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-500 hover:bg-gradient-to-br dark:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ const Register = () => {
             {/* name */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text dark:text-black">Name</span>
+                <span className="label-text text-white">Name</span>
               </label>
               <input
                 {...register("name", { required: true })}
@@ -110,7 +110,7 @@ const Register = () => {
             {/* email */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text dark:text-black">Email</span>
+                <span className="label-text text-white">Email</span>
               </label>
               <input
                 {...register("email", { required: true })}
@@ -124,7 +124,7 @@ const Register = () => {
             {/* photo url */}
             <div className="form-control">
               <label className="label dark:text-black">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text text-white">Photo URL</span>
               </label>
               <input
                 {...register("photo")}
@@ -138,7 +138,7 @@ const Register = () => {
             {/* password */}
             <div className="form-control relative">
               <label className="label ">
-                <span className="label-text dark:text-black">Password</span>
+                <span className="label-text text-white">Password</span>
               </label>
               <input
                 {...register("password", { required: true,
@@ -173,14 +173,14 @@ const Register = () => {
               <input
                 type="submit"
                 value="Register"
-                className="btn bg-yellow-600"
+                className="btn bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-500 hover:bg-gradient-to-br dark:text-white"
               />
             </div>
           </form>
           <div className="text-center">
-            <p className="dark:text-black">
+            <p className="text-white">
               Already registered?{" "}
-              <Link to="/login" className="text-yellow-600 underline">
+              <Link to="/login" className="text-cyan-300 font-bold underline">
                 Go to log in
               </Link>
             </p>
