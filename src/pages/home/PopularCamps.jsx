@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const PopularCamps = () => {
   const [camps, setCamps] = useState([]);
   const sixCamps = camps.slice(0, 6);
-  console.log(sixCamps);
+  // console.log(sixCamps);
 
   useEffect(() => {
     fetch("http://localhost:5000/popularCamps")
@@ -46,7 +46,7 @@ const PopularCamps = () => {
                   <p className="flex items-center gap-1">
                     <FaLocationDot className="text-cyan-400" /> {camp.location}
                   </p>
-                  <Link to={`/popularCamps/${camp._id}`}>
+                  <Link to={`/campDetails/${camp._id}`}>
                   <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
                     Details <FaArrowRightLong />
                   </button></Link>

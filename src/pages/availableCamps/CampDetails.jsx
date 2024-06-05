@@ -1,14 +1,70 @@
 import { FaLocationDot } from "react-icons/fa6";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { FaTruckMedical } from "react-icons/fa6";
 import { TbMedicalCross } from "react-icons/tb";
 import { LiaFileMedicalAltSolid } from "react-icons/lia";
 import { GiMedicalDrip } from "react-icons/gi";
-
+import { useContext } from "react";
+import { AuthContext } from "../../authentication/AuthProvider";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 
 const CampDetails = () => {
   const camp = useLoaderData();
-  console.log(camp);
+  const { user } = useContext(AuthContext);
+
+  // console.log(camp);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    // formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data)
+    // e.preventDefault();
+
+    // const postTitle = e.target.title.value;
+    // const description = e.target.description.value;
+    // const category = e.target.category.value;   
+    // const volunteerEmail = user?.email;   
+    // const photo = e.target.photo.value;
+
+    // const newRequest = {postTitle, description, category, location,  volunteerEmail, photo }
+
+    // send data to the server
+    fetch('http://localhost:5000/campDetails/join', {
+        method: 'POST',
+        headers:{'content-type' : 'application/json'},
+        body:JSON.stringify(data)
+    }, {Credentials: "include"})
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data?.insertedId){
+          toast("Your have successfully registered")
+
+          // update Participants
+        fetch(`http://localhost:5000/updateParticipants/${camp?._id}`,{
+                  method: "PATCH",
+                  headers: { "content-type": "application/json" },
+                  // body: JSON.stringify(Participants),
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    if(data.modifiedCount > 0){
+        
+                      camp.participants = camp?.participants +1;
+                    }
+                  console.log(data)
+                }
+          
+                )
+        }
+    })
+  }
+
   return (
     <section className="w-full min-h-screen bg-red-100">
       <div className="dark:bg-gray-100 dark:text-gray-800">
@@ -36,12 +92,214 @@ const CampDetails = () => {
             </div>
             <div className="flex justify-between items-center my-6 border">
               <p>Healthcare Professional: {camp.healthcarer}</p>
-              <Link to={`/popularCamps/${camp._id}`}>
-                <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
-                  Join Camp
-                  {/* Details <FaArrowRightLong /> */}
-                </button>
-              </Link>
+
+                              {/* join camp modal starts */}
+              <button
+                className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
+                onClick={() =>
+                  document.getElementById("my_modal_5").showModal()
+                }
+              >
+                Join Camp
+              </button>
+              <dialog
+                id="my_modal_5"
+                className="modal modal-bottom max-w-5xl mx-auto flex items-center"
+              >
+                <div className="modal-box">
+                  <h3 className="font-bold text-center text-lg">
+                    Give your data for registration.
+                  </h3>
+                  <div className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm ">
+                    <form
+                        onSubmit={handleSubmit(onSubmit)}
+                      className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3"
+                    >
+                      {/* Camp Name */}
+                      <div className="col-span-full sm:col-span-3">
+                        <label
+                          htmlFor="username"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Camp Name
+                        </label>
+                        <input
+                          {...register("name")}
+                          type="text"
+                          defaultValue={camp?.name}
+                          readOnly
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        />
+                      </div>
+                      {/* Camp Fees */}
+                      <div className="col-span-full sm:col-span-1">
+                        <label
+                          htmlFor="Fees"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Camp Fees
+                        </label>
+                        <input
+                          {...register("fees")}
+                          type="text"
+                          defaultValue={camp?.fees}
+                          readOnly
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+                      {/* Location */}
+                      <div className="col-span-full sm:col-span-2">
+                        <label
+                          htmlFor="website"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Location
+                        </label>
+                        <input
+                          {...register("location")}
+                          type="text"
+                          defaultValue={camp?.location}
+                          readOnly
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        />
+                      </div>
+
+                      {/* Healthcare Professional Name */}
+                      <div className="col-span-full sm:col-span-3">
+                        <label
+                          htmlFor="website"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Healthcare Professional
+                        </label>
+                        <input
+                          {...register("Healthcarer")}
+                          type="email"
+                          defaultValue={camp?.healthcarer}
+                          readOnly
+                          className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+
+                      {/* Participant Name */}
+                      <div className="col-span-full sm:col-span-3">
+                        <label
+                          htmlFor="bio"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Your Name
+                        </label>
+                        <input
+                          {...register("userName")}
+                          type="text"
+                          // defaultValue={user?.name}
+                          placeholder="Your Name"
+                          
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+                      {/* Participant Email */}
+                      <div className="col-span-full sm:col-span-3">
+                        <label
+                          htmlFor="bio"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Your Email
+                        </label>
+                        <input
+                          {...register("userEmail")}
+                          type="email"
+                          defaultValue={user?.email}
+                          readOnly
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+                                    {/* Age */}
+                      <div className="col-span-full sm:col-span-1">
+                        <label
+                          htmlFor="bio"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Your Age
+                        </label>
+                        <input
+                          {...register("age")}
+                          type="number"
+                          placeholder="Your Age"
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+                                  {/* Gender */}
+                      <div className="col-span-full sm:col-span-2">
+                        <label
+                          htmlFor="bio"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Your Gender
+                        </label>
+                        <select
+                        {...register("gender")}
+                         className="select select-bordered w-full max-w-xs">
+                          <option disabled>
+                            Your Gender
+                          </option>
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+                                    {/* Phone Number */}
+                      <div className="col-span-full sm:col-span-3">
+                        <label
+                          htmlFor="bio"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Your Phone Number
+                        </label>
+                        <input
+                          {...register("phone")}
+                          type="number"
+                          placeholder="Your Phone Number"
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+
+                                  {/* Emergency Contact */}
+                      <div className="col-span-full sm:col-span-3">
+                        <label
+                          htmlFor="bio"
+                          className="text-sm p-1 flex justify-start"
+                        >
+                          Emergency Contact
+                        </label>
+                        <input
+                          {...register("contact")}
+                          type="text"
+                          placeholder="Emergency Contact"
+                          className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
+                        ></input>
+                      </div>
+                                    {/* submit button */}
+                      <div className="col-span-full mt-5">
+                        <button
+                          type="submit"
+                          className="bg-gradient-to-r from-cyan-400 via-cyan-500- to-cyan-700 hover:bg-gradient-to-br focus:ring-cyan-300 dark:text-black rounded-md btn btn-block p-3"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="modal-action">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
+                        Close
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+              {/* modal ends */}
             </div>
           </div>
         </div>
@@ -82,9 +340,9 @@ const CampDetails = () => {
                     <div className="grid content-center gap-4">
                       <div className="p-6 border rounded shadow-md dark:bg-gray-50">
                         <div className="flex flex-col items-center p-4">
-                        <FaTruckMedical className="text-3xl"/>
+                          <FaTruckMedical className="text-3xl" />
                           <h3 className="my-3 text-3xl font-semibold">
-                          Medical Treatment
+                            Medical Treatment
                           </h3>
                           <div className="space-y-1 leading-tight">
                             <p>Similique quas ea veniam</p>
@@ -95,9 +353,9 @@ const CampDetails = () => {
                       </div>
                       <div className="p-6 rounded shadow-md dark:bg-gray-50">
                         <div className="flex flex-col items-center p-4">
-                        <TbMedicalCross className="text-3xl"/>
+                          <TbMedicalCross className="text-3xl" />
                           <h3 className="my-3 text-3xl font-semibold">
-                          Emergency Help
+                            Emergency Help
                           </h3>
                           <div className="space-y-1 leading-tight">
                             <p>Similique quas ea veniam</p>
@@ -110,9 +368,9 @@ const CampDetails = () => {
                     <div className="grid content-center gap-4">
                       <div className="p-6 rounded shadow-md dark:bg-gray-50">
                         <div className="flex flex-col items-center p-4">
-                        <LiaFileMedicalAltSolid className="text-3xl"/>
+                          <LiaFileMedicalAltSolid className="text-3xl" />
                           <h3 className="my-3 text-3xl font-semibold">
-                          Medical professionals
+                            Medical professionals
                           </h3>
                           <div className="space-y-1 leading-tight">
                             <p>Similique quas ea veniam</p>
@@ -123,9 +381,9 @@ const CampDetails = () => {
                       </div>
                       <div className="p-6 rounded shadow-md dark:bg-gray-50">
                         <div className="flex flex-col items-center p-4">
-                        <GiMedicalDrip className="text-3xl"/>
+                          <GiMedicalDrip className="text-3xl" />
                           <h3 className="my-3 text-3xl font-semibold">
-                          Qualified Doctors
+                            Qualified Doctors
                           </h3>
                           <div className="space-y-1 leading-tight">
                             <p>Similique quas ea veniam</p>

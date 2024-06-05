@@ -36,12 +36,13 @@ const Register = () => {
         // axiosPublic.post('/users', userInfo)
         // .then(res => {
         //   if(res.data.insertedId){
-        //     reset()
-        //     toast('User has created successfully')
+            reset()
+            toast('User has created successfully')
         //   }
         // });
         logout()
-        navigate("/login")
+        // navigate("/login")
+        navigate(from, { replace: true });
       })
       .catch(error=>{
         console.log(error.message)
@@ -60,8 +61,8 @@ const Register = () => {
     //   axiosPublic.post('/users', userInfo)
     //   .then(res=>{
     //     console.log(res.data)
-    //     toast("You have successfully logged in");
-    //     navigate(from, { replace: true });
+        toast("You have successfully logged in");
+        navigate(from, { replace: true });
     //   })
       
     });

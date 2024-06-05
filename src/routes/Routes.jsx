@@ -8,6 +8,7 @@ import Login from "../authentication/Login";
 import Register from "../authentication/Register";
 import AvailableCamps from "../pages/availableCamps/AvailableCamps";
 import CampDetails from "../pages/availableCamps/CampDetails";
+import PrivetRoute from "../authentication/PrivetRoute";
 
 export  const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ export  const router = createBrowserRouter([
         },
         {
             path: "/campDetails/:id",
-            element: <CampDetails></CampDetails>,
+            element: <PrivetRoute><CampDetails></CampDetails></PrivetRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/campDetails/${params.id}`)
         },
         {

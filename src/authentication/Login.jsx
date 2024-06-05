@@ -42,7 +42,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
     .then((result) => {
-      // console.log(result.user);
+      console.log(result.user);
       toast("You have successfully logged in");
       navigate(from, { replace: true });
     //   const userInfo= {
