@@ -2,20 +2,21 @@ import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const PopularCamps = () => {
   const [camps, setCamps] = useState([]);
+  const axiosPublic = useAxiosPublic();
   const sixCamps = camps.slice(0, 6);
   // console.log(sixCamps);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popularCamps")
-      .then((res) => res.json())
-      .then((data) => {
-        setCamps(data);
+    axiosPublic.get("/popularCamps")
+      .then((res) => {
+        setCamps(res.data);
       });
-  }, []);
+  }, [axiosPublic]);
 
   return (
     <div className="my-10">

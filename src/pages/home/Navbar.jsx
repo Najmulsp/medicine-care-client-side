@@ -169,7 +169,7 @@ const Navbar = () => {
               </h1>
                   </li>
                   <li className=" ">
-                    <Link to="/" className="p-2 btn text-white bg-purple-400 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 rounded-lg  font-semibold  w-full">Dashboard</Link>
+                    <Link to="dashboard/analytics" className="p-2 btn text-white bg-purple-400 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 rounded-lg  font-semibold  w-full">Dashboard</Link>
                   </li>
                   <li>
                   <button

@@ -9,6 +9,11 @@ import Register from "../authentication/Register";
 import AvailableCamps from "../pages/availableCamps/AvailableCamps";
 import CampDetails from "../pages/availableCamps/CampDetails";
 import PrivetRoute from "../authentication/PrivetRoute";
+import Dashboard from "../layout/Dashboard";
+import Analytics from "../pages/dashboard/participant/Analytics";
+import ParticipantProfile from "../pages/dashboard/participant/ParticipantProfile";
+import RegisteredCamps from "../pages/dashboard/participant/RegisteredCamps";
+import PaymentHistory from "../pages/dashboard/participant/PaymentHistory";
 
 export  const router = createBrowserRouter([
     {
@@ -39,4 +44,27 @@ export  const router = createBrowserRouter([
         },
       ]
     },
+            // dashboard
+    {
+      path: "dashboard",
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'analytics',
+          element: <Analytics></Analytics>
+        },
+        {
+          path: 'participantProfile',
+          element: <ParticipantProfile></ParticipantProfile>
+        },
+        {
+          path: 'registerCamps',
+          element: <RegisteredCamps></RegisteredCamps>
+        },
+        {
+          path: 'paymentHistory',
+          element: <PaymentHistory></PaymentHistory>
+        },
+      ]
+    }
   ]);

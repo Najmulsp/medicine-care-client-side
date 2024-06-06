@@ -8,11 +8,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const CampDetails = () => {
   const camp = useLoaderData();
   const { user } = useContext(AuthContext);
-
+  const axiosSecure = useAxiosSecure();
   // console.log(camp);
   const {
     register,
@@ -34,15 +36,17 @@ const CampDetails = () => {
     // const newRequest = {postTitle, description, category, location,  volunteerEmail, photo }
 
     // send data to the server
-    fetch('http://localhost:5000/campDetails/join', {
-        method: 'POST',
-        headers:{'content-type' : 'application/json'},
-        body:JSON.stringify(data)
-    }, {Credentials: "include"})
-    .then(res => res.json())
-    .then(data => {
-        console.log(data)
-        if(data?.insertedId){
+    // fetch('http://localhost:5000/campDetails/join', {
+    //     method: 'POST',
+    //     headers:{'content-type' : 'application/json'},
+    //     body:JSON.stringify(data)
+    // }, {Credentials: "include"})
+    // .then(res => res.json())
+    axiosSecure.post('/campDetails/join', data)
+    .then(res => {
+        console.log(res.data)
+        if(res.data?.insertedId){
+          reset()
           toast("Your have successfully registered")
 
           // update Participants
@@ -58,9 +62,16 @@ const CampDetails = () => {
                       camp.participants = camp?.participants +1;
                     }
                   console.log(data)
-                }
+                })
           
-                )
+        // const {data, refetch} = useQuery({
+        //   queryKey: ['data'],
+        //   queryFn: async () =>{
+        //     const res = await axiosSecure.patch(`/updateParticipants/${camp?._id}`)
+        //     return res.data
+        //   }
+        // })
+                
         }
     })
   }

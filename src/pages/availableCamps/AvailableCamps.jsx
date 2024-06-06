@@ -3,21 +3,34 @@ import { FaArrowRightLong, FaLocationDot } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
 import { LuLayoutPanelTop } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 
 
 const AvailableCamps = () => {
-  const [camps, setCamps] = useState([]);
+  // const [camps, setCamps] = useState([]);
+  const axiosPublic = useAxiosPublic();
   const [layoutMode, setLayoutMode] = useState("3card");
 
 
-  useEffect(() => {
-    fetch("http://localhost:5000/popularCamps")
-      .then((res) => res.json())
-      .then((data) => {
-        setCamps(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/popularCamps")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setCamps(data);
+  //     });
+  // }, []);
+  const {data: camps = [] } = useQuery({
+    queryKey: ['camp'],
+    queryFn: async () =>{
+      const res = await axiosPublic.get('/popularCamps');
+      return res.data
+    }
+  })
+
+
+
 
    // Function to toggle layout mode
    const toggleLayout = () => {
