@@ -23,6 +23,16 @@ const CampDetails = () => {
     // formState: { errors },
   } = useForm();
 
+  // const {data: camps = [], refetch } = useQuery({
+  //   queryKey: ['camp'],
+  //   queryFn: async () =>{
+  //     const res = await axiosSecure.post(`/campDetails/join`);
+  //     return res.data
+  //   }
+  // })
+
+
+
   const onSubmit = (data) => {
     console.log(data)
     // e.preventDefault();
@@ -36,12 +46,8 @@ const CampDetails = () => {
     // const newRequest = {postTitle, description, category, location,  volunteerEmail, photo }
 
     // send data to the server
-    // fetch('http://localhost:5000/campDetails/join', {
-    //     method: 'POST',
-    //     headers:{'content-type' : 'application/json'},
-    //     body:JSON.stringify(data)
-    // }, {Credentials: "include"})
-    // .then(res => res.json())
+    
+
     axiosSecure.post('/campDetails/join', data)
     .then(res => {
         console.log(res.data)
@@ -203,8 +209,8 @@ const CampDetails = () => {
                         <input
                           {...register("userName")}
                           type="text"
-                          // defaultValue={user?.name}
-                          placeholder="Your Name"
+                          defaultValue={user?.name}
+                          // placeholder="Your Name"
                           
                           className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                         ></input>

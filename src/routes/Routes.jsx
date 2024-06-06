@@ -59,7 +59,8 @@ export  const router = createBrowserRouter([
         },
         {
           path: 'registerCamps',
-          element: <RegisteredCamps></RegisteredCamps>
+          element: <RegisteredCamps></RegisteredCamps>,
+          loader: (params) => fetch(`http://localhost:5000/participantCamps/${params.email}`)
         },
         {
           path: 'paymentHistory',

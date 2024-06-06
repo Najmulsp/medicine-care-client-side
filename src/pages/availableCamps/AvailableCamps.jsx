@@ -12,7 +12,23 @@ const AvailableCamps = () => {
   // const [camps, setCamps] = useState([]);
   const axiosPublic = useAxiosPublic();
   const [layoutMode, setLayoutMode] = useState("3card");
+  // const [search, setSearch] = useState("");
 
+  
+
+  // useEffect(()=>{
+  //   axiosPublic.get(`/needPosts?search=${search}`)
+  //   .then(data => {    
+  //     setVolunteers(data.data)
+  //   })
+  // }, [search])
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   const search = e.target.search.value;
+
+  //   setSearch(search);
+  // };
 
   // useEffect(() => {
   //   fetch("http://localhost:5000/popularCamps")
@@ -49,6 +65,7 @@ const AvailableCamps = () => {
           <div className="relative">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
               <button
+              // onClick={handleSearch}
                 type="button"
                 title="search"
                 className="p-1 focus:outline-none focus:ring"

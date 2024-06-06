@@ -2,9 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="flex">
+    <div className="flex border border-pink-600">
       {/* sidebar */}
-      <div className="drawer lg:drawer-open">
+      <div className="drawer w-1/5 lg:drawer-open border border-green-600">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
@@ -35,11 +35,14 @@ const Dashboard = () => {
             <li>
             <NavLink to="paymentHistory">Payment History</NavLink>
             </li>
+            <li>
+            <NavLink to="/">Home</NavLink>
+            </li>
           </ul>
         </div>
       </div>
                     {/* content */}
-        <div className="flex-1 bg-blue-100">
+        <div className="flex-1 bg-blue-100 w-full mx-auto border">
             <Outlet></Outlet>
         </div>
     </div>

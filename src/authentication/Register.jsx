@@ -7,11 +7,12 @@ import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 // import useAuth from "../../hooks/useAuth";
-// import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 
 const Register = () => {
-//   const axiosPublic = useAxiosPublic()
+  const axiosPublic = useAxiosPublic()
   const { logout, googleLogin} = useContext(AuthContext)
   const {
     register,
@@ -33,16 +34,22 @@ const Register = () => {
       
       updateUserProfile(data.name, data.photo)
       .then(()=>{
-        // axiosPublic.post('/users', userInfo)
-        // .then(res => {
-        //   if(res.data.insertedId){
+        const userInfo = {
+          name: data.name,
+          emai: data.email
+        }
+        axiosPublic.post('/users', userInfo)
+        .then(res => {
+          if(res.data.insertedId){
             reset()
             toast('User has created successfully')
-        //   }
-        // });
-        logout()
+            logout()
+        navigate("/login")
+          }
+        });
+        // logout()
         // navigate("/login")
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
       })
       .catch(error=>{
         console.log(error.message)
@@ -54,16 +61,16 @@ const Register = () => {
     googleLogin()
     .then((result) => {
       console.log(result.user);
-    //   const userInfo= {
-    //     name: result.user?.displayName,
-    //     email: result.user?.email
-    //   }
-    //   axiosPublic.post('/users', userInfo)
-    //   .then(res=>{
-    //     console.log(res.data)
+      const userInfo= {
+        name: result.user?.displayName,
+        email: result.user?.email
+      }
+      axiosPublic.post('/users', userInfo)
+      .then(res=>{
+        console.log(res.data)
         toast("You have successfully logged in");
         navigate(from, { replace: true });
-    //   })
+      })
       
     });
   };
