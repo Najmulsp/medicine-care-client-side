@@ -34,9 +34,7 @@ const CampDetails = () => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
-    // e.preventDefault();
-
+   
     // const postTitle = e.target.title.value;
     // const description = e.target.description.value;
     // const category = e.target.category.value;   
@@ -66,6 +64,7 @@ const CampDetails = () => {
                     if(data.modifiedCount > 0){
         
                       camp.participants = camp?.participants +1;
+                       
                     }
                   console.log(data)
                 })
@@ -81,6 +80,8 @@ const CampDetails = () => {
         }
     })
   }
+
+
 
   return (
     <section className="w-full min-h-screen bg-red-100">
@@ -105,7 +106,7 @@ const CampDetails = () => {
               <p className="flex items-center gap-1">
                 <FaLocationDot className="text-cyan-400" /> {camp.location}
               </p>
-              <p>Participants: {camp.participants}</p>
+              <p>Participants: {camp.participants + 1}</p>
             </div>
             <div className="flex justify-between items-center my-6 border">
               <p>Healthcare Professional: {camp.healthcarer}</p>
@@ -207,6 +208,7 @@ const CampDetails = () => {
                           Your Name
                         </label>
                         <input
+                        
                           {...register("userName")}
                           type="text"
                           defaultValue={user?.name}

@@ -14,6 +14,10 @@ import Analytics from "../pages/dashboard/participant/Analytics";
 import ParticipantProfile from "../pages/dashboard/participant/ParticipantProfile";
 import RegisteredCamps from "../pages/dashboard/participant/RegisteredCamps";
 import PaymentHistory from "../pages/dashboard/participant/PaymentHistory";
+import OrganizerProfile from "../pages/dashboard/organizer/OrganizerProfile";
+import AddCamp from "../pages/dashboard/organizer/AddCamp";
+import ManageCamps from "../pages/dashboard/organizer/ManageCamps";
+import ManegeRegisteredCamps from "../pages/dashboard/organizer/ManegeRegisteredCamps";
 
 export  const router = createBrowserRouter([
     {
@@ -47,8 +51,27 @@ export  const router = createBrowserRouter([
             // dashboard
     {
       path: "dashboard",
-      element: <Dashboard></Dashboard>,
+      element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
       children: [
+                    // organizer routes
+        {
+          path: "organizerProfile",
+          element:<OrganizerProfile></OrganizerProfile>
+        },
+        {
+          path: "addACamp",
+          element:<AddCamp></AddCamp>
+        },
+        {
+          path: "manageCamps",
+          element:<ManageCamps></ManageCamps>
+        },
+        {
+          path: "manageRegisterCamps",
+          element:<ManegeRegisteredCamps></ManegeRegisteredCamps>
+        },
+
+                    // participants routes
         {
           path: 'analytics',
           element: <Analytics></Analytics>

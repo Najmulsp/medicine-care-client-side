@@ -1,6 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+
+  // todo: get isOrganizer value from the database;
+  const isOrganizer = true;
+
   return (
     <div className="flex border border-pink-600">
       {/* sidebar */}
@@ -23,7 +27,26 @@ const Dashboard = () => {
           ></label>
           <ul className="menu p-4 space-y-2 w-80 min-h-full bg-cyan-100 text-base-content">
             {/* Sidebar content here */}
+            {
+              isOrganizer?<>
+              <li>
+              <NavLink to="organizerProfile">Organizer Profile</NavLink>
+            </li>
             <li>
+            <NavLink to="addACamp">Add A Camp</NavLink>
+            </li>
+            <li>
+            <NavLink to="manageCamps">Manage Camps</NavLink>
+            </li>
+            <li>
+            <NavLink to="manageRegisterCamps">Manage Registered Camps</NavLink>
+            </li>
+            <li>
+            <NavLink to="/">Home</NavLink>
+            </li>
+              </>
+              :<>
+              <li>
               <NavLink to="analytics">Analytics</NavLink>
             </li>
             <li>
@@ -38,6 +61,8 @@ const Dashboard = () => {
             <li>
             <NavLink to="/">Home</NavLink>
             </li>
+              </>
+            }
           </ul>
         </div>
       </div>
