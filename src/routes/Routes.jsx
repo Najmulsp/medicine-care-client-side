@@ -18,6 +18,7 @@ import OrganizerProfile from "../pages/dashboard/organizer/OrganizerProfile";
 import AddCamp from "../pages/dashboard/organizer/AddCamp";
 import ManageCamps from "../pages/dashboard/organizer/ManageCamps";
 import ManegeRegisteredCamps from "../pages/dashboard/organizer/ManegeRegisteredCamps";
+import Payment from "../pages/dashboard/participant/Payment";
 
 export  const router = createBrowserRouter([
     {
@@ -83,11 +84,15 @@ export  const router = createBrowserRouter([
         {
           path: 'registerCamps',
           element: <RegisteredCamps></RegisteredCamps>,
-          loader: (params) => fetch(`http://localhost:5000/participantCamps/${params.email}`)
+          // loader: (params) => fetch(`http://localhost:5000/participantCamps/${params.email}`)
         },
         {
           path: 'paymentHistory',
           element: <PaymentHistory></PaymentHistory>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
         },
       ]
     }

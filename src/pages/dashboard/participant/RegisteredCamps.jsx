@@ -1,26 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import { useLoaderData } from "react-router-dom";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { useContext } from "react";
-import { AuthContext } from "../../../authentication/AuthProvider";
+
 import Swal from "sweetalert2";
+import useParticipantCamps from "../../../hooks/useParticipantCamps";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
+
 
 
 const RegisteredCamps = () => {
-  const {user} = useContext(AuthContext);
-  const axiosPublic= useAxiosPublic();
+  const [camps, refetch] = useParticipantCamps();
   const axiosSecure = useAxiosSecure();
 
-  const {data: camps = [], refetch } = useQuery({
-    queryKey: ['camp'],
-    queryFn: async () =>{
-      const res = await axiosPublic.get(`/participantCamps/${user?.email}`);
-      return res.data
-    }
-  })
-  // console.log(camps)
 
+        // cancel camp
   const handleCancel = id =>{
     Swal.fire({
       title: "Are you sure?",
@@ -70,9 +61,11 @@ const RegisteredCamps = () => {
           <th>{camp.name}</th> 
           <td>{camp.fees}</td> 
           <td>{camp.userName}</td> 
-          <td>Paid</td> 
+          <td><Link to="/dashboard/payment" className="btn btn-ghost">Pay</Link></td> 
           <td>Pending</td> 
-          <td><button onClick={() => {handleCancel(camp._id)}} className="btn bg-orange-400">cancel</button></td> 
+          <td><button
+           onClick={() => {handleCancel(camp._id)}} 
+           className="btn bg-orange-400">cancel</button></td> 
           <td><button className="btn bg-cyan-400">Feedback</button></td>
         </tr>)
       }

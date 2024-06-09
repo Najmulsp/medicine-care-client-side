@@ -1,6 +1,10 @@
+import useParticipantCamps from "../../../hooks/useParticipantCamps";
 
 
 const Analytics = () => {
+    const [camps, refetch] = useParticipantCamps();
+
+    
     return (
         <div>
             <h1>this is Analytics</h1>

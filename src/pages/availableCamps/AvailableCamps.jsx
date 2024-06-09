@@ -40,11 +40,7 @@ const AvailableCamps = () => {
   const {data: camps = [] } = useQuery({
     queryKey: ['camp'],
     queryFn: async () =>{
-      const res = await axiosPublic.get('/popularCamps', {
-        headers:{
-          authorization: `Bearer ${localStorage.getItem('access-token')}`
-        }
-      });
+      const res = await axiosPublic.get('/popularCamps');
       return res.data
     }
   })

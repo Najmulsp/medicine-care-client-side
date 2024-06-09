@@ -1,9 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
+import useOrganizer from "../hooks/useOrganizer";
 
 const Dashboard = () => {
 
   // todo: get isOrganizer value from the database;
-  const isOrganizer = true;
+  const [isOrganizer] = useOrganizer();
 
   return (
     <div className="flex border border-pink-600">

@@ -37,7 +37,8 @@ const Register = () => {
       .then(()=>{
         const userInfo = {
           name: data.name,
-          emai: data.email
+          email: data.email,
+          photoURL: data.photo
         }
         axiosPublic.post('/users', userInfo)
         .then(res => {
