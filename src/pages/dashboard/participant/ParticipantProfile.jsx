@@ -75,7 +75,7 @@ const ParticipantProfile = () => {
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-label="Phonenumber" className="w-4 h-4">
 					<path fill="currentColor" d="M449.366,89.648l-.685-.428L362.088,46.559,268.625,171.176l43,57.337a88.529,88.529,0,0,1-83.115,83.114l-57.336-43L46.558,362.088l42.306,85.869.356.725.429.684a25.085,25.085,0,0,0,21.393,11.857h22.344A327.836,327.836,0,0,0,461.222,133.386V111.041A25.084,25.084,0,0,0,449.366,89.648Zm-20.144,43.738c0,163.125-132.712,295.837-295.836,295.837h-18.08L87,371.76l84.18-63.135,46.867,35.149h5.333a120.535,120.535,0,0,0,120.4-120.4v-5.333l-35.149-46.866L371.759,87l57.463,28.311Z"></path>
 				</svg>
-				<span className="dark:text-gray-600">+25 381 77 983</span>
+				<span className="dark:text-gray-600">{profile?.phone}</span>
 			</span>
 			
 			<button
@@ -142,7 +142,7 @@ const ParticipantProfile = () => {
                         <input
                           {...register("image")}
                           type="text"
-                          placeholder='profile?.photoURL'
+                          defaultValue={profile?.photoURL}
                           className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                         ></input>
                       </div>

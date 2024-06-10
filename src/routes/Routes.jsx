@@ -39,7 +39,7 @@ export  const router = createBrowserRouter([
         {
             path: "/campDetails/:id",
             element: <PrivetRoute><CampDetails></CampDetails></PrivetRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/campDetails/${params.id}`)
+            loader: ({params}) => fetch(`https://medicine-care-server-side.vercel.app/campDetails/${params.id}`)
         },
         {
             path: "/login",
@@ -73,7 +73,7 @@ export  const router = createBrowserRouter([
         {
           path: "manageCamps/update/:id",
           element:<UpdateCamps></UpdateCamps>,
-          loader: ({params}) => fetch(`http://localhost:5000/campDetails/${params.id}`)
+          loader: ({params}) => fetch(`https://medicine-care-server-side.vercel.app/campDetails/${params.id}`)
         },
         {
           path: "manageRegisterCamps",

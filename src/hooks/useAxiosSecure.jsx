@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://medicine-care-server-side.vercel.app'
 })
 
 const useAxiosSecure = () => {

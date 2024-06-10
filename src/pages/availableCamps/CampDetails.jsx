@@ -36,7 +36,7 @@ const CampDetails = () => {
               toast("You have successfully registered");
       
               // Update Participants
-              const updateRes = await fetch(`http://localhost:5000/updateParticipants/${camp?._id}`, {
+              const updateRes = await fetch(`https://medicine-care-server-side.vercel.app/updateParticipants/${camp?._id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
               });

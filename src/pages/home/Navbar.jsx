@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { toast } from "react-toastify";
+import logo from '../../assets/logo/medicine care.png'
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -25,10 +26,24 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+         to="/"
+         className={({ isActive }) =>
+          isActive
+            ? "border-2 px-2 lg:px-4  py-2 rounded-lg bg-sky-600 font-bold dark:text-black"
+            : ""
+        }
+         >Home</NavLink>
       </li>
       <li>
-        <NavLink to="/availableCamps">Available Camps</NavLink>
+        <NavLink
+         to="/availableCamps"
+         className={({ isActive }) =>
+          isActive
+            ? "border-2 px-2 lg:px-4  py-2 rounded-lg bg-sky-600 font-bold dark:text-black"
+            : ""
+        }
+         >Available Camps</NavLink>
       </li>
     </>
   );
@@ -60,7 +75,8 @@ const Navbar = () => {
               {navlinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Medicine Care</a>
+          {/* <a className="btn btn-ghost text-xl">Medicine Care</a> */}
+          <img src={logo} alt="" className="h-10 w-32"/>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
