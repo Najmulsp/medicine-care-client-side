@@ -4,83 +4,56 @@ import { FaTruckMedical } from "react-icons/fa6";
 import { TbMedicalCross } from "react-icons/tb";
 import { LiaFileMedicalAltSolid } from "react-icons/lia";
 import { GiMedicalDrip } from "react-icons/gi";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+
 
 const CampDetails = () => {
   const camp = useLoaderData();
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
-  // console.log(camp);
+ const [participantsCount, setParticipantsCount] = useState(camp?.participants || 0);
+
   const {
     register,
     handleSubmit,
     reset,
-    // formState: { errors },
   } = useForm();
 
-  // const {data: camps = [], refetch } = useQuery({
-  //   queryKey: ['camp'],
-  //   queryFn: async () =>{
-  //     const res = await axiosSecure.post(`/campDetails/join`);
-  //     return res.data
-  //   }
-  // })
-
-
-
-  const onSubmit = (data) => {
-   
-    // const postTitle = e.target.title.value;
-    // const description = e.target.description.value;
-    // const category = e.target.category.value;   
-    // const volunteerEmail = user?.email;   
-    // const photo = e.target.photo.value;
-
-    // const newRequest = {postTitle, description, category, location,  volunteerEmail, photo }
-
-    // send data to the server
+  const onSubmit = async (data) => {
+    data.participantCount = parseInt(data.participantCount, 10);
+    data.fees = parseInt(data.fees, 10);
     
 
-    axiosSecure.post('/campDetails/join', data)
-    .then(res => {
-        console.log(res.data)
-        if(res.data?.insertedId){
-          reset()
-          toast("Your have successfully registered")
-
-          // update Participants
-        fetch(`http://localhost:5000/updateParticipants/${camp?._id}`,{
-                  method: "PATCH",
-                  headers: { "content-type": "application/json" },
-                  // body: JSON.stringify(Participants),
-                })
-                .then(res => res.json())
-                .then(data =>{
-                    if(data.modifiedCount > 0){
+    // send data to the server
+          try {
+            const res = await axiosSecure.post('/campDetails/join', data);
+            if (res.data?.insertedId) {
+              reset();
+              toast("You have successfully registered");
+      
+              // Update Participants
+              const updateRes = await fetch(`http://localhost:5000/updateParticipants/${camp?._id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+              });
+              const updateData = await updateRes.json();
+      
+              if (updateData.modifiedCount > 0) {
+                setParticipantsCount(prevCount => prevCount + 1);
+              }
+            }
+          } catch (error) {
+            console.error("Error updating participants:", error);
+          }
         
-                      camp.participants = camp?.participants +1;
-                       
-                    }
-                  console.log(data)
-                })
-          
-        // const {data, refetch} = useQuery({
-        //   queryKey: ['data'],
-        //   queryFn: async () =>{
-        //     const res = await axiosSecure.patch(`/updateParticipants/${camp?._id}`)
-        //     return res.data
-        //   }
-        // })
+       
                 
         }
-    })
-  }
-
+    
 
 
   return (
@@ -106,7 +79,7 @@ const CampDetails = () => {
               <p className="flex items-center gap-1">
                 <FaLocationDot className="text-cyan-400" /> {camp.location}
               </p>
-              <p>Participants: {camp.participants + 1}</p>
+              <p>Participants: {participantsCount + 1}</p>
             </div>
             <div className="flex justify-between items-center my-6 border">
               <p>Healthcare Professional: {camp.healthcarer}</p>

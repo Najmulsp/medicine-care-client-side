@@ -44,7 +44,7 @@ const Register = () => {
         .then(res => {
           if(res.data.insertedId){
             reset()
-            toast('User has created successfully')
+            toast('User has created successfully, You can log in now')
             logout()
         navigate("/login")
           }
@@ -92,7 +92,7 @@ const Register = () => {
                 <span className="label-text text-white">Email</span>
               </label>
               <input
-                {...register("email", { required: true })}
+                {...register("email")}
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
