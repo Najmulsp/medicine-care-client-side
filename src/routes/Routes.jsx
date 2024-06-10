@@ -20,6 +20,7 @@ import ManageCamps from "../pages/dashboard/organizer/ManageCamps";
 import ManegeRegisteredCamps from "../pages/dashboard/organizer/ManegeRegisteredCamps";
 import Payment from "../pages/dashboard/participant/Payment";
 import UpdateCamps from "../pages/dashboard/organizer/UpdateCamps";
+import Feedback from "../pages/dashboard/participant/Feedback";
 
 export  const router = createBrowserRouter([
     {
@@ -91,6 +92,11 @@ export  const router = createBrowserRouter([
         {
           path: 'registerCamps',
           element: <RegisteredCamps></RegisteredCamps>,
+        },
+        {
+          path: 'registerCamps/feedback',
+          element: <Feedback></Feedback>,
+          
         },
         {
           path: 'paymentHistory',

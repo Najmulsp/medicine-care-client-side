@@ -25,7 +25,7 @@ const ParticipantProfile = () => {
           return res.data
         }
       })
-	console.log(profile.name)
+	// console.log(profile.name)
 
 	const onSubmit = async (data) => {
 

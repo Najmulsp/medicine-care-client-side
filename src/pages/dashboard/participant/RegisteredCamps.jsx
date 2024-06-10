@@ -66,7 +66,9 @@ const RegisteredCamps = () => {
           <td><button
            onClick={() => {handleCancel(camp._id)}} 
            className="btn bg-orange-400">cancel</button></td> 
-          <td><button className="btn bg-cyan-400">Feedback</button></td>
+          <td>
+            <Link to={`feedback`}><button className="btn bg-cyan-400">Feedback</button></Link>
+            </td>
         </tr>)
       }
       </tbody> 
