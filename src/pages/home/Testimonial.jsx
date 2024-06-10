@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import bgImg from "../../assets/parallax/camps 5 .jpg";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-
+import Marquee from 'react-fast-marquee';
 
 
 
@@ -24,20 +24,23 @@ const Testimonial = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
-      <div className="absolute top-0 mt-6 text-white">
+      <div className="absolute top-0 mt-10 text-white">
         <h1 className="text-4xl font-bold text-center">Testimonials</h1>
-        <p className="text-2xl text-center">What Our Clients Say</p>
-        <div className="flex mt-20">
+        <p className="text-2xl text-center pt-4">What Our Clients Say</p>
+        <Marquee className="mt-20">
             
           {
             feedbacks.map(feedback =>
 
-                <section className="my-8" key={feedback._id}>
-            <div className="container mx-auto  gap-8 lg:gap-20 md:px-10 md:pb-10 ">
+                <div className="my-8 " key={feedback._id}>
+            <div className="">
             
-              <div className="flex flex-col items-center mx-12 lg:mx-0 border">
-                <img src="" alt="" />
-                <div className="relative text-center">
+              <div className="flex flex-col items-center w-1/3 border">
+                <div className="bg-sky-400 bg-opacity-20 w-full flex items-center">
+                <img src={feedback.image} alt="" className="text-left"/>
+                <p className="ml-10 text-4xl">{feedback.name}</p>
+                </div>
+                <div className="relative text-center bg-cyan-500 bg-opacity-30">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -48,9 +51,7 @@ const Testimonial = () => {
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
                   <p className="px-6 py-1 text-lg italic">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Voluptatibus quibusdam, eligendi exercitationem molestias
-                    possimus facere.
+                    {feedback.feedback}
                   </p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -62,16 +63,16 @@ const Testimonial = () => {
                     <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
                   </svg>
                 </div>
-                <span className="w-12 h-1 my-2 rounded-lg dark:bg-violet-600"></span>
-                <p>Leroy Jenkins</p>
+                
+                
               </div>
              
             </div>
-          </section>
+           </div>
             )
           }
           
-        </div>
+        </Marquee>
       </div>
                         {/* lowar section */}
       <section className="p-6 mb-6 dark:bg-sky-500 dark:text-gray-800">
