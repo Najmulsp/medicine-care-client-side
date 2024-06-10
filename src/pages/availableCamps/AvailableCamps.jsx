@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaArrowRightLong, FaLocationDot } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
 import { LuLayoutPanelTop } from "react-icons/lu";
@@ -9,7 +9,6 @@ import { useQuery } from "@tanstack/react-query";
 
 
 const AvailableCamps = () => {
-  // const [camps, setCamps] = useState([]);
   const axiosPublic = useAxiosPublic();
   const [layoutMode, setLayoutMode] = useState("3card");
   // const [search, setSearch] = useState("");
@@ -30,13 +29,7 @@ const AvailableCamps = () => {
   //   setSearch(search);
   // };
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/popularCamps")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setCamps(data);
-  //     });
-  // }, []);
+ 
   const {data: camps = [] } = useQuery({
     queryKey: ['camp'],
     queryFn: async () =>{
@@ -191,3 +184,4 @@ const AvailableCamps = () => {
 };
 
 export default AvailableCamps;
+

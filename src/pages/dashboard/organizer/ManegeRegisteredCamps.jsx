@@ -1,28 +1,26 @@
 
-
-
 import { useQuery } from "@tanstack/react-query";
-import { useLoaderData } from "react-router-dom";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { useContext } from "react";
-import { AuthContext } from "../../../authentication/AuthProvider";
+
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import { useContext } from "react";
+// import { AuthContext } from "../../../authentication/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const ManegeRegisteredCamps = () => {
-  const {user} = useContext(AuthContext);
-  const axiosPublic= useAxiosPublic();
+  // const {user} = useContext(AuthContext);
+  // const axiosPublic= useAxiosPublic();
   const axiosSecure = useAxiosSecure();
 
   const {data: camps = [], refetch } = useQuery({
-    queryKey: ['camp'],
+    queryKey: ['camps'],
     queryFn: async () =>{
-      const res = await axiosPublic.get(`/participantCamps/${user?.email}`);
+      const res = await axiosSecure.get(`/allParticipantCamps`);
       return res.data
     }
   })
-  // console.log(camps)
+  console.log(camps)
 
   const handleCancel = id =>{
     Swal.fire({
@@ -57,13 +55,13 @@ const ManegeRegisteredCamps = () => {
   <table className="table table-xs">
     <thead>
       <tr className="text-black">
+        <th>Participant Name</th> 
         <th>Camp Name</th> 
         <th>Camp Fees</th> 
-        <th>Participant Name</th> 
         <th>Payment Status</th> 
         <th>Confirmation Status</th> 
         <th>Cancel Button</th> 
-        <th>Feedback Button</th>
+        
       </tr>
     </thead> 
     <tbody>
@@ -72,15 +70,15 @@ const ManegeRegisteredCamps = () => {
          <tr
           key={camp._id}
           >
-          <th>{camp.name}</th> 
-          <td>{camp.fees}</td> 
           <td>{camp.userName}</td> 
+          <th>{camp.name}</th> 
+          <td>$ {camp.fees}</td> 
           <td>Paid</td> 
           <td>Pending</td> 
           <td><button
            onClick={() => {handleCancel(camp._id)}}
             className="btn bg-orange-400">cancel</button></td> 
-          <td><button className="btn bg-cyan-400">Feedback</button></td>
+          
         </tr>)
       }
       </tbody> 

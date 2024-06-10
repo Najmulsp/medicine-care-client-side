@@ -60,7 +60,7 @@ const CampDetails = () => {
     <section className="w-full min-h-screen bg-red-100">
       <div className="dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 ">
             <img
               src={camp.image}
               alt=""
@@ -71,18 +71,18 @@ const CampDetails = () => {
             <h1 className="text-5xl font-bold leading-none sm:text-6xl">
               {camp.name}
             </h1>
-            <div className="flex justify-between items-center my-6 border">
-              <p className=" text-lg">Date: {camp.date}</p>
-              <p>Fees: {camp.fees}</p>
+            <div className="flex justify-between items-center my-6">
+              <p className=" text-lg"><span className="font-bold">Date: </span> {camp.date}</p>
+              <p><span className="font-bold">Fees: </span>{camp.fees}</p>
             </div>
-            <div className="flex justify-between items-center my-6 border">
+            <div className="flex justify-between items-center my-6">
               <p className="flex items-center gap-1">
                 <FaLocationDot className="text-cyan-400" /> {camp.location}
               </p>
-              <p>Participants: {participantsCount + 1}</p>
+              <p><span className="font-bold">Participants: </span>{participantsCount + 1}</p>
             </div>
-            <div className="flex justify-between items-center my-6 border">
-              <p>Healthcare Professional: {camp.healthcarer}</p>
+            <div className="flex justify-between items-center my-6">
+              <p><span className="font-bold">Healthcare Professional:  </span>{camp.healthcarer}</p>
 
                               {/* join camp modal starts */}
               <button
@@ -297,37 +297,24 @@ const CampDetails = () => {
         </div>
       </div>
       {/* details part */}
-      <div className="dark:bg-gray-100 dark:text-gray-800 border">
-        <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+      <div className="dark:bg-gray-100 dark:text-gray-800">
+        <div className="container flex flex-col justify-center mx-auto lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-            <h1 className="">Description: {camp.description}</h1>
-            <p className="mt-6 mb-8 text-lg sm:mb-12">
+            <h1 className=""><span className="font-bold">Description:  </span>{camp.description}</h1>
+            <p className=" mb-8 text-lg sm:mb-12">
               Dictum aliquam porta in condimentum ac integer
               <br className="hidden md:inline lg:hidden" />
               turpis pulvinar, est scelerisque ligula sem
             </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
-              >
-                Suspendisse
-              </a>
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-800"
-              >
-                Malesuada
-              </a>
+              <p>Sustainable practices must be adopted across all walks of life, and Sustainable practices must be adopted across all walks of life</p>
             </div>
           </div>
-          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+          <div className="flex items-center justify-center pt-28  mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
             {/* four grid container */}
             <div className="dark:bg-gray-100 dark:text-gray-800 border">
-              <div className="container px-6 py-12 mx-auto">
-                <div className="p-6 xl:col-span-3">
+              <div className="container mx-auto">
+                <div className=" xl:col-span-3">
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="grid content-center gap-4">
                       <div className="p-6 border rounded shadow-md dark:bg-gray-50">
