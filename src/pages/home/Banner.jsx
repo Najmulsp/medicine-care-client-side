@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+import { Navigation, Pagination,  Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,17 +15,17 @@ import banner5 from '../../assets/banner/banner 5.jpg'
 const Banner = () => {
     return (
         <Swiper
-      modules={[Navigation, Pagination, A11y, Autoplay]}
+      modules={[   Autoplay, Pagination, Navigation]}
       spaceBetween={50}
       slidesPerView={1}
-      navigation
-    //   autoplay={{
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    //   }}
+      navigation={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
       loop={true}
       pagination={{ clickable: true }}
-      className="container mx-auto"
+      className="container mx-auto mySwiper"
     >
                                     {/* slide 1 */}
        <SwiperSlide
@@ -42,7 +42,7 @@ const Banner = () => {
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-20 lg:pt-28 top-1 left-16 lg:left-24 w-2/3 lg:w-1/3">
+            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-24 lg:pt-28 top-1 left-16 lg:left-24 w-2/3 lg:w-1/3">
           
           Welcome to Medicine Care
           </h1></Fade>
@@ -51,12 +51,12 @@ const Banner = () => {
             data-aos="fade-left"
             data-aos-duration="2000"
             data-aos-delay="2400"
-            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-12 lg:top-56 top-32 left-16 lg:left-24 w-3/5">
+            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-16 lg:top-48 top-32 left-16 lg:left-24 w-3/5">
           
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-              <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-6  lg:top-80 top-56 left-16 lg:left-24">Make an Appointment</button></Link>
+              <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-12  lg:top-72 top-56 left-16 lg:left-24">Make an Appointment</button></Link>
           </Fade>
         </div>
        </SwiperSlide>
@@ -75,22 +75,22 @@ const Banner = () => {
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-20 lg:pt-20 top-1 left-16 lg:left-24  w-2/3 lg:w-1/3">
           
           Healthcare just for kids.
-Saving children.
+          Saving children.
           </h1></Fade>
           <Fade>
           <p
             data-aos="fade-left"
             data-aos-duration="2000"
             data-aos-delay="2400"
-            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-8 lg:top-64 top-32 left-16 lg:left-24 w-3/5">
+            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-24 lg:top-64 top-32 left-16 lg:left-24 w-3/5">
           
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-6  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
+          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-20  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
           </Fade>
         </div>
        </SwiperSlide>
@@ -109,7 +109,7 @@ Saving children.
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-20 lg:pt-20 top-1 left-16 lg:left-24 w-2/3 lg:w-1/3">
           
           Medical services that
 you can trust
@@ -119,12 +119,12 @@ you can trust
             data-aos="fade-left"
             data-aos-duration="2000"
             data-aos-delay="2400"
-            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-8 lg:top-64 top-32 left-16 lg:left-24 w-3/5">
+            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-12 lg:top-60 top-32 left-16 lg:left-24 w-3/5">
           
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-6  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
+          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-12  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
           </Fade>
         </div>
        </SwiperSlide>
@@ -143,7 +143,7 @@ you can trust
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-20 lg:pt-28 top-1 left-16 lg:left-24 w-2/3 lg:w-3/5">
           
           Medical excellence
 every day.
@@ -153,12 +153,12 @@ every day.
             data-aos="fade-left"
             data-aos-duration="2000"
             data-aos-delay="2400"
-            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-8 lg:top-64 top-32 left-16 lg:left-24 w-3/5">
+            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-12 lg:top-52 top-32 left-16 lg:left-24 w-3/5">
           
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-6  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
+          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-8  top-56 lg:top-72 left-16 lg:left-24">Make an Appointment</button></Link>
           </Fade>
         </div>
        </SwiperSlide>
@@ -177,7 +177,7 @@ every day.
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-2/3">
+            className="text-4xl lg:text-6xl absolute font-bold text-white text-left pt-20 lg:pt-28 top-1 left-16 lg:left-24 w-2/3">
           
           Exceptional people.
 Exceptional care.
@@ -187,12 +187,12 @@ Exceptional care.
             data-aos="fade-left"
             data-aos-duration="2000"
             data-aos-delay="2400"
-            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-8 lg:top-64 top-32 left-16 lg:left-24 w-3/5">
+            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-24 lg:top-44 top-32 left-16 lg:left-24 w-3/5">
           
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute p-3 border border-white btn-outline text-xl font-semibold text-white text-left mt-6  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
+          <Link to="/allCraft"><button className="absolute p-3 border border-white btn-outline text-xl font-semibold text-white text-left mt-24  top-56 lg:top-64 left-16 lg:left-24">Make an Appointment</button></Link>
           </Fade>
         </div>
        </SwiperSlide>

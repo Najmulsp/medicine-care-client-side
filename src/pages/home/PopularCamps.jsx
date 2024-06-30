@@ -20,10 +20,12 @@ const PopularCamps = () => {
 
   return (
     <div className="my-10">
-      <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4 border ">
+      <h1 className="text-4xl text-center font-bold">Popular Camps</h1>
+      <p className="text-2xl text-center py-2 pb-6">Held on outside of our medical</p>
+      <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4 ">
         {sixCamps?.map((camp) => (
           <div key={camp._id}>
-            <div className="max-w-sm  shadow-md dark:bg-gray-50 dark:text-gray-800">
+            <div className="max-w-sm mx-auto shadow-md dark:bg-gray-50 dark:text-gray-800">
               <img
                 src={camp.image}
                 alt=""
@@ -48,7 +50,7 @@ const PopularCamps = () => {
                     <FaLocationDot className="text-cyan-400" /> {camp.location}
                   </p>
                   <Link to={`/campDetails/${camp._id}`}>
-                  <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
+                  <button className="btn text-white bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
                     Details <FaArrowRightLong />
                   </button></Link>
                 </div>
@@ -59,7 +61,7 @@ const PopularCamps = () => {
       </div>
       <div className="text-center mt-6">
         <Link to="/availableCamps">
-        <button className="btn w-32 mx-auto bg-gradient-to-r from-sky-400 via-sky-600 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
+        <button className="btn w-32 mx-auto text-white bg-gradient-to-r from-sky-400 via-sky-600 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
           See All Camps
         </button></Link>
       </div>

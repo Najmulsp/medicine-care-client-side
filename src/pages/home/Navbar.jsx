@@ -160,7 +160,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              className="btn px-6 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
+              className="btn px-6 text-white bg-gradient-to-r from-sky-400 via-sky-600 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
               to="/login"
             >
               Login

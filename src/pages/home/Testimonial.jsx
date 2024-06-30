@@ -17,25 +17,31 @@ const Testimonial = () => {
       })
       console.log(feedbacks)
   return (
-    <div className="relative">
+    <div className="relative lg:block hidden">
       <div
-        className="hero min-h-screen bg-fixed inset-0 relative"
+        className="hero  min-h-[520px] bg-fixed inset-0 relative"
         style={{ backgroundImage: `url(${bgImg})` }}
       >
+        <div className="lg:hidden">
+          <h1>dfasjfhal</h1>
+        </div>
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
-      <div className="absolute top-0 mt-10 text-white">
-        <h1 className="text-4xl font-bold text-center">Testimonials</h1>
+      <div className="">
+      <div className="lg:absolute top-0 lg:mt-10 text-white">
+        <div className=" mx-auto w-60 text-white">
+        <h1 className="text-4xl font-bold   text-center">Testimonials</h1>
         <p className="text-2xl text-center pt-4">What Our Clients Say</p>
-        <Marquee className="mt-20">
+        </div>
+        <Marquee className="mt-20  mx-auto ">
             
           {
             feedbacks.map(feedback =>
 
-                <div className="my-8 " key={feedback._id}>
+                <div className=" " key={feedback._id}>
             <div className="">
             
-              <div className="flex flex-col items-center w-1/3 border">
+              <div className="flex flex-col items-center w-1/3 ">
                 <div className="bg-sky-400 bg-opacity-20 w-full flex items-center">
                 <img src={feedback.image} alt="" className="text-left"/>
                 <p className="ml-10 text-4xl">{feedback.name}</p>
@@ -73,6 +79,7 @@ const Testimonial = () => {
           }
           
         </Marquee>
+      </div>
       </div>
                         {/* lowar section */}
       <section className="p-6 mb-6 dark:bg-sky-500 dark:text-gray-800">
