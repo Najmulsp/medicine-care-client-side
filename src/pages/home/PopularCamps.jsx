@@ -19,7 +19,7 @@ const PopularCamps = () => {
   }, [axiosPublic]);
 
   return (
-    <div className="my-10">
+    <div className="py-10 bg-red-50 ">
       <h1 className="text-4xl text-center font-bold">Popular Camps</h1>
       <p className="text-2xl text-center py-2 pb-6">Held on outside of our medical</p>
       <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4 ">

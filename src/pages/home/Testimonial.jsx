@@ -43,7 +43,7 @@ const Testimonial = () => {
             
               <div className="flex flex-col items-center w-1/3 ">
                 <div className="bg-sky-400 bg-opacity-20 w-full flex items-center">
-                <img src={feedback.image} alt="" className="text-left"/>
+                <img src={feedback.image} alt="" className="text-left w-28"/>
                 <p className="ml-10 text-4xl">{feedback.name}</p>
                 </div>
                 <div className="relative text-center bg-cyan-500 bg-opacity-30">
@@ -82,7 +82,7 @@ const Testimonial = () => {
       </div>
       </div>
                         {/* lowar section */}
-      <section className="p-6 mb-6 dark:bg-sky-500 dark:text-gray-800">
+      <section className="p-6 dark:bg-sky-500 dark:text-gray-800">
 	<div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
 		<div className="flex p-4 space-x-4 rounded-lg md:space-x-6 dark:bg-sky-300 dark:text-gray-800">
 			<div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-600">

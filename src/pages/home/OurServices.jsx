@@ -43,8 +43,8 @@ const OurServices = () => {
             <section className=" dark:text-gray-800">
 	<div className="container p-6 mx-auto space-y-9">
 		<div className="space-y-2 ">
-			<h2 className="text-3xl font-bold">Innovation</h2>
-			<p className="font-serif text-sm dark:text-gray-600">Our Services</p>
+			<p className="font-serif text-sm text-sky-400 ">Innovation</p>
+			<h2 className="text-3xl font-bold">Our Services</h2>
 		</div>
 
         <Swiper
