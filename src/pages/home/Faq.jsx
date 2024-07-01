@@ -1,29 +1,26 @@
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const Faq = () => {
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
 
-//  const handleAppointment = e =>{
-//     e.preventDefault();
-//     const department = e.target.department.value;
-//     const doctor = e.target.doctor.value;
-//     const name = e.target.name.value;
-//     const phone = e.target.department.value;
-//     const email = e.target.email.value;
-//     const date = e.target.date.value;
-//     const appointmentDate = {department, doctor, name, phone, email, date }
-//     console.log(appointmentDate)
-//  }
 
  const { register, handleSubmit, reset  } = useForm();
- const onSubmit = data => {
+ const onSubmit = async data => {
  console.log(data);
- const res = axiosSecure.post('/appointment', data);
+ const res = await axiosPublic.post('/appointment', data);
+ console.log(res)
  if (res.data?.insertedId) {
    reset();
-   toast("You have successfully registered");
+   Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Your appointment has been saved",
+    showConfirmButton: false,
+    timer: 1500
+  });
  }
  }
  
