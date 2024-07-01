@@ -1,4 +1,35 @@
+import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { toast } from "react-toastify";
+
 const Faq = () => {
+  const axiosSecure = useAxiosSecure();
+
+//  const handleAppointment = e =>{
+//     e.preventDefault();
+//     const department = e.target.department.value;
+//     const doctor = e.target.doctor.value;
+//     const name = e.target.name.value;
+//     const phone = e.target.department.value;
+//     const email = e.target.email.value;
+//     const date = e.target.date.value;
+//     const appointmentDate = {department, doctor, name, phone, email, date }
+//     console.log(appointmentDate)
+//  }
+
+ const { register, handleSubmit, reset  } = useForm();
+ const onSubmit = data => {
+ console.log(data);
+ const res = axiosSecure.post('/appointment', data);
+ if (res.data?.insertedId) {
+   reset();
+   toast("You have successfully registered");
+ }
+ }
+ 
+
+
+
   return (
     <div>
       <section
@@ -12,9 +43,9 @@ const Faq = () => {
                 Book An Appointment
               </h1>
 
-              <div className="grid grid-cols-6 gap-4  lg:col-span-3">
+              <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-6 gap-4  lg:col-span-3">
                 <div className="col-span-full sm:col-span-3">
-                <select className="select bg-blue-900 bg-opacity-50 text-white  mt-4 rounded-none select-primary border border-white w-full ">
+                <select name="department" {...register("department")} className="select bg-blue-900 bg-opacity-50 text-white  mt-4 rounded-none select-primary border border-white w-full ">
                     <option disabled selected>
                       Select Departments
                     </option>
@@ -27,7 +58,7 @@ const Faq = () => {
                   </select>
                 </div>
                 <div className="col-span-full sm:col-span-3">
-                  <select className="select bg-blue-900 bg-opacity-50 text-white  mt-4 rounded-none select-primary border border-white w-full ">
+                  <select name="doctor" {...register("doctor")} className="select bg-blue-900 bg-opacity-50 text-white  mt-4 rounded-none select-primary border border-white w-full ">
                     <option disabled selected>
                       Select Doctors
                     </option>
@@ -40,7 +71,7 @@ const Faq = () => {
                 </div>
                 <div className="col-span-full sm:col-span-3">
                   <input
-                    id="name"
+                    {...register("name")}
                     type="text"
                     placeholder="Your Name"
                     className="w-full p-2  bg-blue-900 bg-opacity-50  border border-white"
@@ -48,7 +79,7 @@ const Faq = () => {
                 </div>
                 <div className="col-span-full sm:col-span-3">
                   <input
-                    id="phone"
+                    {...register("phone")}
                     type="number"
                     placeholder="Phone"
                     className="w-full p-2   bg-blue-900 bg-opacity-50 border text-white "
@@ -56,7 +87,7 @@ const Faq = () => {
                 </div>
                 <div className="col-span-full sm:col-span-3">
                   <input
-                    id="email"
+                    {...register("email")}
                     type="text"
                     placeholder="Email"
                     className="w-full p-2 bg-blue-900 bg-opacity-50 border text-white "
@@ -64,18 +95,18 @@ const Faq = () => {
                 </div>
                 <div className="col-span-full sm:col-span-3">
                   <input
-                    id="website"
+                    {...register("date")}
                     type="date"
                     placeholder=""
                     className="w-full p-2 bg-blue-900 bg-opacity-50 border text-white "
                   />
                 </div>
                 <div className=" ml-32 lg:ml-0">
-                <button className="btn mx-auto flex justify-center border-white bg-blue-900 bg-opacity-50 text-white  rounded-none btn-outline lg:w-64 ">
+                <button type="submit" className="btn mx-auto flex justify-center border-white bg-blue-900 bg-opacity-50 text-white  rounded-none btn-outline lg:w-64 ">
                   Make An Appointment
                 </button>
                 </div>
-              </div>
+              </form>
               
             </div>
             

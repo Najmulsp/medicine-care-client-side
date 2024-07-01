@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 
 const Analytics = () => {
-    const [camps, refetch] = useParticipantCamps();
+    const [camps] = useParticipantCamps();
         console.log(camps)
     const getPath = (x, y, width, height) => {
         return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
@@ -22,10 +22,11 @@ const Analytics = () => {
 
 
     return (
-        <div className="mx-auto p-32">
+        <div className="w-full max-w-screen-lg md:w-3/4 lg:w-1/2 py-24 lg:p-24">
             <BarChart
-      width={1000}
-      height={500}
+            className="w-full max-w-screen-lg md:w-3/4 lg:w-1/2"
+      width={400}
+      height={300}
       data={camps}
       margin={{
         top: 20,

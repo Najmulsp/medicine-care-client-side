@@ -15,7 +15,7 @@ const Testimonial = () => {
           return res.data
         }
       })
-      console.log(feedbacks)
+      // console.log(feedbacks)
   return (
     <div className="relative lg:block hidden">
       <div
