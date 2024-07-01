@@ -21,9 +21,9 @@ const OurServices = () => {
             <section className="dark:bg-rose-50 dark:text-gray-800">
                 
             <h1 className="text-2xl text-center  pt-8">Inside our medical these are our service departments</h1>
-	<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+	<div className="container max-w-6xl p-6 pb-16 mx-auto ">
 		<a rel="noopener noreferrer" href="#" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 ">
-        <div className="border lg:mt-24 bg-sky-500 w-full lg:col-span-3">
+        <div className="border lg:mt-8 bg-sky-600 w-full lg:col-span-3">
               <ul className="py-4 space-y-3 text-center">
                 <li className="font-bold text-2xl pb-6">Departments</li>
                 <li>Laboratory Analysis</li>
@@ -41,7 +41,7 @@ const OurServices = () => {
                     {/* second div */}
                     
             <section className=" dark:text-gray-800">
-	<div className="container p-6 mx-auto space-y-9">
+	<div className="container p-6 mx-auto -pb-6">
 		<div className="space-y-2 ">
 			<p className="font-serif text-sm text-sky-400 ">Innovation</p>
 			<h2 className="text-3xl font-bold">Our Services</h2>

@@ -6,7 +6,7 @@ import { TbMedicalCross } from "react-icons/tb";
 const WeProvides = () => {
     return (
         <div>
-            <section className="py-6 sm:py-12 dark:bg-gray-100 dark:text-gray-800">
+            <section className="py-6 sm:py-4 dark:bg-gray-100 dark:text-gray-800">
             <div className="container p-6 mx-auto space-y-8">
               <div className="space-y-2 text-center">
                 <h2 className="text-3xl font-bold">Partem reprimique an pro</h2>

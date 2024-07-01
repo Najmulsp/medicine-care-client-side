@@ -1,19 +1,93 @@
-
-
 const Faq = () => {
   return (
     <div>
-      <section className="p-6 dark:bg-gray-100 dark:text-gray-800">
-        <div className="container">
-          
+      <section
+        id="appointment"
+        className="p-6 pb-16 dark:bg-gray-100 dark:text-gray-800"
+      >
+        <div className="container flex flex-col lg:flex-row">
+          <fieldset className="grid grid-cols-4 gap-6 p-6 shadow-sm bg-sky-600">
+            <div className="col-span-full">
+              <h1 className="text-3xl text-center py-6 font-bold text-white">
+                Book An Appointment
+              </h1>
+
+              <div className="grid grid-cols-6 gap-4  lg:col-span-3">
+                <div className="col-span-full sm:col-span-3">
+                <select className="select bg-blue-900 bg-opacity-50 text-white  mt-4 rounded-none select-primary border border-white w-full ">
+                    <option disabled selected>
+                      Select Departments
+                    </option>
+                    <option>Pediatric Clinic</option>
+                    <option>Laryngological Clinic</option>
+                    <option>Outpatient Rehabilitation</option>
+                    <option>Gynaecological Clinic</option>
+                    <option>Cardiac Clinicy</option>
+                    <option>Outpatient Surgery</option>
+                  </select>
+                </div>
+                <div className="col-span-full sm:col-span-3">
+                  <select className="select bg-blue-900 bg-opacity-50 text-white  mt-4 rounded-none select-primary border border-white w-full ">
+                    <option disabled selected>
+                      Select Doctors
+                    </option>
+                    <option>Dr. Nick Siams</option>
+                    <option>Dr. Julia Jameson</option>
+                    <option>Dr. Amy Adams</option>
+                    <option>Dr. Max Turner</option>
+                    <option>Dr. Michael Linden</option>
+                  </select>
+                </div>
+                <div className="col-span-full sm:col-span-3">
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full p-2  bg-blue-900 bg-opacity-50  border border-white"
+                  />
+                </div>
+                <div className="col-span-full sm:col-span-3">
+                  <input
+                    id="phone"
+                    type="number"
+                    placeholder="Phone"
+                    className="w-full p-2   bg-blue-900 bg-opacity-50 border text-white "
+                  />
+                </div>
+                <div className="col-span-full sm:col-span-3">
+                  <input
+                    id="email"
+                    type="text"
+                    placeholder="Email"
+                    className="w-full p-2 bg-blue-900 bg-opacity-50 border text-white "
+                  />
+                </div>
+                <div className="col-span-full sm:col-span-3">
+                  <input
+                    id="website"
+                    type="date"
+                    placeholder=""
+                    className="w-full p-2 bg-blue-900 bg-opacity-50 border text-white "
+                  />
+                </div>
+                <div className=" ml-32 lg:ml-0">
+                <button className="btn mx-auto flex justify-center border-white bg-blue-900 bg-opacity-50 text-white  rounded-none btn-outline lg:w-64 ">
+                  Make An Appointment
+                </button>
+                </div>
+              </div>
+              
+            </div>
+            
+          </fieldset>
 
           {/* faq */}
-          <section className="dark:bg-gray-100 border w-full xl:col-span-3 dark:text-gray-800">
-            <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
+          <section className="dark:bg-gray-100 border pt-4 w-full  dark:text-gray-800">
+            <div className="container flex flex-col justify-center mx-auto ">
               <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
                 FAQ
               </p>
-              <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
+              <h2 className="mb-8  text-4xl font-bold leading-none text-center sm:text-3xl">
                 Have some Questions?
               </h2>
               <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-300">

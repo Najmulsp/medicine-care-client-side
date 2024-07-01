@@ -56,7 +56,7 @@ const Banner = () => {
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-              <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-12  lg:top-72 top-56 left-16 lg:left-24">Make an Appointment</button></Link>
+          <a href="#appointment"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-12  lg:top-72 top-56 left-16 lg:left-24">Make an Appointment</button></a>
           </Fade>
         </div>
        </SwiperSlide>
@@ -90,7 +90,7 @@ const Banner = () => {
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-20  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
+          <a href="#appointment"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-20  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></a>
           </Fade>
         </div>
        </SwiperSlide>
@@ -124,7 +124,7 @@ you can trust
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-12  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></Link>
+          <a href="#appointment"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-12  top-56 lg:top-80 left-16 lg:left-24">Make an Appointment</button></a>
           </Fade>
         </div>
        </SwiperSlide>
@@ -158,7 +158,7 @@ every day.
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-8  top-56 lg:top-72 left-16 lg:left-24">Make an Appointment</button></Link>
+          <a href="#appointment"><button className="absolute border p-3 border-white btn-outline text-xl font-semibold text-white text-left mt-8  top-56 lg:top-72 left-16 lg:left-24">Make an Appointment</button></a>
           </Fade>
         </div>
        </SwiperSlide>
@@ -192,7 +192,7 @@ Exceptional care.
           Entrust your health our doctors
           </p></Fade>
           <Fade direction="up">
-          <Link to="/allCraft"><button className="absolute p-3 border border-white btn-outline text-xl font-semibold text-white text-left mt-24  top-56 lg:top-64 left-16 lg:left-24">Make an Appointment</button></Link>
+          <a href="#appointment"><button className="absolute p-3 border border-white btn-outline text-xl font-semibold text-white text-left mt-24  top-56 lg:top-64 left-16 lg:left-24">Make an Appointment</button></a>
           </Fade>
         </div>
        </SwiperSlide>
