@@ -2,13 +2,14 @@
 
 Live Site: https://medicine-care-camp.web.app
 
-Project Overview:
-This medical camp management website offers both paid campaigns and medical services, allowing users to join, cancel, or pay for their camp requests and provide feedback. Developed with the MERN stack, the system aids organizers and participants in effectively managing and coordinating medical camps. The platform features a user and admin.
+## Project Overview:
+-This medical camp management website offers both paid campaigns and medical services, allowing users to join, cancel, or pay for their camp requests and provide feedback. Developed with the MERN stack, the system aids organizers and participants in effectively managing and coordinating medical camps. The platform features a user and admin.
 
-##Features:
+## Features:
 -Payment methods with stripe
 -Users and Admin dashboard
 -Firebase Auth methods
 -Jwt token for secured
 
-  
+## Technology:
+- React JS, Node JS, MongoDB, Tailwind CSS, HTML, Swiper Slider, React Fast Marquee, React CoutUP.
