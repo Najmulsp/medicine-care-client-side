@@ -106,19 +106,20 @@ useEffect(()=>{
     <div>
       <form onSubmit={handleSubmit}>
         <CardElement
+        className="border border-black p-3"
           options={{
             style: {
               base: {
                 fontSize: "16px",
                 color: "#424770",
-                
+                border: "5px",
                 "::placeholder": {
                   color: "#aab7c4",
                 },
               },
               invalid: {
                 color: "#9e2146",
-                
+                border: "10px",
               },
             },
           }}

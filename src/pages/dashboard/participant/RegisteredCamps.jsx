@@ -40,7 +40,7 @@ const RegisteredCamps = () => {
   }
 
     return (
-        <div className="w-full border border-red-500 p-20 pr-28">
+        <div className="w-full  pt-20 p-6 lg:p-20 lg:pr-28">
           <h1 className="text-3xl font-bold text-center text-black mb-6">You Registered Camp Info</h1>
             <div className="overflow-x-auto">
   <table className="table table-xs">

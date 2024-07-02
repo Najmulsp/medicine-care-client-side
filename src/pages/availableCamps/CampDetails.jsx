@@ -9,55 +9,76 @@ import { AuthContext } from "../../authentication/AuthProvider";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import bannerImg from "../../assets/parallax/banner.jpg";
+import { FaHouseMedicalFlag } from "react-icons/fa6";
 
 
 const CampDetails = () => {
   const camp = useLoaderData();
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
- const [participantsCount, setParticipantsCount] = useState(camp?.participants || 0);
+  const [participantsCount, setParticipantsCount] = useState(
+    camp?.participants || 0
+  );
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     data.participantCount = parseInt(data.participantCount, 10);
     data.fees = parseInt(data.fees, 10);
-    
 
     // send data to the server
-          try {
-            const res = await axiosSecure.post('/campDetails/join', data);
-            if (res.data?.insertedId) {
-              reset();
-              toast("You have successfully registered");
-      
-              // Update Participants
-              const updateRes = await fetch(`https://medicine-care-server-side.vercel.app/updateParticipants/${camp?._id}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-              });
-              const updateData = await updateRes.json();
-      
-              if (updateData.modifiedCount > 0) {
-                setParticipantsCount(prevCount => prevCount + 1);
-              }
-            }
-          } catch (error) {
-            console.error("Error updating participants:", error);
-          }
-        
-       
-                
-        }
-    
+    try {
+      const res = await axiosSecure.post("/campDetails/join", data);
+      if (res.data?.insertedId) {
+        reset();
+        toast("You have successfully registered");
 
+        // Update Participants
+        const updateRes = await fetch(
+          `https://medicine-care-server-side.vercel.app/updateParticipants/${camp?._id}`,
+          {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        const updateData = await updateRes.json();
+
+        if (updateData.modifiedCount > 0) {
+          setParticipantsCount((prevCount) => prevCount + 1);
+        }
+      }
+    } catch (error) {
+      console.error("Error updating participants:", error);
+    }
+  };
 
   return (
     <section className="w-full min-h-screen bg-red-100">
+      {/* banner starts */}
+      <div
+      style={{ backgroundImage: `url(${bannerImg})` }}
+       className="p-6 py-12 pt-20 dark:text-gray-50">
+        <div className="container mx-auto">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <h2 className="text-center text-6xl tracking-tighter font-bold">
+              Camp Details
+            </h2>
+            <div className="space-x-2 text-center py-2 lg:py-0">
+              <span>Please Join Our Camp If You Fill Sick</span>
+              
+            </div>
+            <a
+              href="#"
+              rel="noreferrer noopener"
+              className="px-5 mt-4 lg:mt-0 py-3 text-4xl block  dark:text-gray-50 "
+            >
+              <FaHouseMedicalFlag />
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* banner ends */}
       <div className="dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 ">
@@ -72,19 +93,30 @@ const CampDetails = () => {
               {camp.name}
             </h1>
             <div className="flex justify-between items-center my-6">
-              <p className=" text-lg"><span className="font-bold">Date: </span> {camp.date}</p>
-              <p><span className="font-bold">Fees: </span>{camp.fees}</p>
+              <p className=" text-lg">
+                <span className="font-bold">Date: </span> {camp.date}
+              </p>
+              <p>
+                <span className="font-bold">Fees: </span>
+                {camp.fees}
+              </p>
             </div>
             <div className="flex justify-between items-center my-6">
               <p className="flex items-center gap-1">
                 <FaLocationDot className="text-cyan-400" /> {camp.location}
               </p>
-              <p><span className="font-bold">Participants: </span>{participantsCount + 1}</p>
+              <p>
+                <span className="font-bold">Participants: </span>
+                {participantsCount + 1}
+              </p>
             </div>
             <div className="flex justify-between items-center my-6">
-              <p><span className="font-bold">Healthcare Professional:  </span>{camp.healthcarer}</p>
+              <p>
+                <span className="font-bold">Healthcare Professional: </span>
+                {camp.healthcarer}
+              </p>
 
-                              {/* join camp modal starts */}
+              {/* join camp modal starts */}
               <button
                 className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
                 onClick={() =>
@@ -103,7 +135,7 @@ const CampDetails = () => {
                   </h3>
                   <div className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm ">
                     <form
-                        onSubmit={handleSubmit(onSubmit)}
+                      onSubmit={handleSubmit(onSubmit)}
                       className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3"
                     >
                       {/* Camp Name */}
@@ -181,12 +213,11 @@ const CampDetails = () => {
                           Your Name
                         </label>
                         <input
-                        
                           {...register("userName")}
                           type="text"
                           defaultValue={user?.name}
                           // placeholder="Your Name"
-                          
+
                           className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                         ></input>
                       </div>
@@ -206,7 +237,7 @@ const CampDetails = () => {
                           className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                         ></input>
                       </div>
-                                    {/* Age */}
+                      {/* Age */}
                       <div className="col-span-full sm:col-span-1">
                         <label
                           htmlFor="bio"
@@ -221,7 +252,7 @@ const CampDetails = () => {
                           className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                         ></input>
                       </div>
-                                  {/* Gender */}
+                      {/* Gender */}
                       <div className="col-span-full sm:col-span-2">
                         <label
                           htmlFor="bio"
@@ -230,16 +261,15 @@ const CampDetails = () => {
                           Your Gender
                         </label>
                         <select
-                        {...register("gender")}
-                         className="select select-bordered w-full max-w-xs">
-                          <option disabled>
-                            Your Gender
-                          </option>
+                          {...register("gender")}
+                          className="select select-bordered w-full max-w-xs"
+                        >
+                          <option disabled>Your Gender</option>
                           <option>Male</option>
                           <option>Female</option>
                         </select>
                       </div>
-                                    {/* Phone Number */}
+                      {/* Phone Number */}
                       <div className="col-span-full sm:col-span-3">
                         <label
                           htmlFor="bio"
@@ -255,7 +285,7 @@ const CampDetails = () => {
                         ></input>
                       </div>
 
-                                  {/* Emergency Contact */}
+                      {/* Emergency Contact */}
                       <div className="col-span-full sm:col-span-3">
                         <label
                           htmlFor="bio"
@@ -270,7 +300,7 @@ const CampDetails = () => {
                           className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                         ></input>
                       </div>
-                                    {/* submit button */}
+                      {/* submit button */}
                       <div className="col-span-full mt-5">
                         <button
                           type="submit"
@@ -300,14 +330,21 @@ const CampDetails = () => {
       <div className="dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col justify-center mx-auto lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-            <h1 className=""><span className="font-bold">Description:  </span>{camp.description}</h1>
+            <h1 className="">
+              <span className="font-bold">Description: </span>
+              {camp.description}
+            </h1>
             <p className=" mb-8 text-lg sm:mb-12">
               Dictum aliquam porta in condimentum ac integer
               <br className="hidden md:inline lg:hidden" />
               turpis pulvinar, est scelerisque ligula sem
             </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <p>Sustainable practices must be adopted across all walks of life, and Sustainable practices must be adopted across all walks of life</p>
+              <p>
+                Sustainable practices must be adopted across all walks of life,
+                and Sustainable practices must be adopted across all walks of
+                life
+              </p>
             </div>
           </div>
           <div className="flex items-center justify-center pt-28  mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">

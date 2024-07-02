@@ -25,8 +25,8 @@ const Analytics = () => {
         <div className="w-full max-w-screen-lg md:w-3/4 lg:w-1/2 py-24 lg:p-24">
             <BarChart
             className="w-full max-w-screen-lg md:w-3/4 lg:w-1/2"
-      width={400}
-      height={300}
+      width={500}
+      height={400}
       data={camps}
       margin={{
         top: 20,
