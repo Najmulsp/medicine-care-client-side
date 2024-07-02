@@ -7,9 +7,13 @@ Live Site: https://medicine-care-camp.web.app
 
 ## Features:
 -Payment methods with stripe.
+
 -Users and Admin dashboard.
+
 -Firebase Auth methods.
+
 -Jwt token for secured.
+
 
 ## Technology:
 - React JS, Node JS, MongoDB, Tailwind CSS, HTML, Swiper Slider, React Fast Marquee, React CoutUP.
