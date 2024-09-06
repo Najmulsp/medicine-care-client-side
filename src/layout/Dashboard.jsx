@@ -26,7 +26,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 pt-10  space-y-2 lg:w-80 min-h-screen bg-cyan-100 text-base-content">
+          <ul className="menu p-4 pt-10  space-y-2 lg:w-80 min-h-screen bg-cyan-800 text-black">
             {/* Sidebar content here */}
             {
               isOrganizer?<>
@@ -68,7 +68,7 @@ const Dashboard = () => {
         </div>
       </div>
                     {/* content */}
-        <div className="flex-1 bg-blue-100 w-full mx-auto border">
+        <div className="flex-1 bg-cyan-600 w-full mx-auto border">
             <Outlet></Outlet>
         </div>
     </div>

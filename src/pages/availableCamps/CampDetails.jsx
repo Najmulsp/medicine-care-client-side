@@ -54,7 +54,7 @@ const CampDetails = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-red-100">
+    <section className="w-full min-h-screen dark:bg-slate-600">
       {/* banner starts */}
       <div
       style={{ backgroundImage: `url(${bannerImg})` }}
@@ -79,7 +79,7 @@ const CampDetails = () => {
         </div>
       </div>
       {/* banner ends */}
-      <div className="dark:bg-gray-100 dark:text-gray-800">
+      <div className=" dark:text-gray-800">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 ">
             <img
@@ -118,7 +118,7 @@ const CampDetails = () => {
 
               {/* join camp modal starts */}
               <button
-                className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
+                className="btn text-white bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
                 onClick={() =>
                   document.getElementById("my_modal_5").showModal()
                 }
@@ -354,7 +354,7 @@ const CampDetails = () => {
                 <div className=" xl:col-span-3">
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="grid content-center gap-4">
-                      <div className="p-6 border rounded shadow-md dark:bg-gray-50">
+                      <div className="p-6 rounded shadow-md dark:bg-gray-50">
                         <div className="flex flex-col items-center p-4">
                           <FaTruckMedical className="text-3xl" />
                           <h3 className="my-3 text-3xl font-semibold">

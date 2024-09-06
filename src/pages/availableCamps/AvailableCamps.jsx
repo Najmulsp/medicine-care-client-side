@@ -63,20 +63,16 @@ const AvailableCamps = () => {
     <div className="pt-20">
       <div className="flex items-center gap-10">
         {/* search field */}
-        <fieldset className="w-5/12 mx-auto py-6 space-y-1 dark:text-gray-800">
-          <form onSubmit={handleSearch} className="relative">
-            <label className="input input-bordered flex items-center gap-2">
-              <input
-               type="text"
-               name="search"
-                className="grow"
-                 placeholder="Search" />
-              <button type="submit" className="btn px-8 bg-sky-300 lg:absolute right-0">
-              <svg
+    <form
+    onSubmit={handleSearch}
+    className="flex flex-row w-5/12 mx-auto py-6  dark:text-gray-800">
+			<input type="text" name="search" placeholder="Search by name" className="w-3/5 p-3 rounded-l-lg sm:w-2/3 border" />
+			<button type="submit" className="w-2/5 border p-3 font-semibold rounded-r-lg sm:w-1/3 bg-sky-600 dark:text-gray-50 flex justify-center items-center">
+      <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
                 fill="currentColor"
-                className="w-6 h-4 opacity-70"
+                className="w-6 h-4 opacity-40 text-black"
               >
                 <path
                   fillRule="evenodd"
@@ -84,19 +80,19 @@ const AvailableCamps = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              </button>
-            </label>
-          </form>
-        </fieldset>
+      Search
+      </button>
+		</form>
+
         {/* sort field */}
-        <fieldset className="w-3/12 space-y-1 dark:text-gray-800">
+        {/* <fieldset className="w-3/12 space-y-1 dark:text-gray-800">
           <details className="dropdown">
             <summary
             // onChange={e =>{
             //   setSort(e.target.value)
             // }}
             // value={sort}
-            className="m-1 btn bg-gradient-to-r from-sky-400 via-sky-500 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
+            className="m-1 btn text-black bg-gradient-to-r from-sky-400 via-sky-500 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
               Sort By <FaAngleDown />
             </summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
@@ -111,18 +107,18 @@ const AvailableCamps = () => {
               </li>
             </ul>
           </details>
-        </fieldset>
+        </fieldset> */}
         {/* change layout */}
         <button
           onClick={toggleLayout}
-          className="btn  mx-auto bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
+          className="btn  mx-auto text-black bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
         >
-          <LuLayoutPanelTop className="text-cyan-200" />
+          <LuLayoutPanelTop className="text-black" />
           Change Layout
         </button>
       </div>
       {layoutMode === "3card" ? (
-        <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4 border ">
+        <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4">
           {camps?.map((camp) => (
             <div key={camp._id}>
               <div className="max-w-sm  shadow-md dark:bg-gray-50 dark:text-gray-800">
@@ -151,7 +147,7 @@ const AvailableCamps = () => {
                       {camp.location}
                     </p>
                     <Link to={`/campDetails/${camp._id}`}>
-                      <button className="btn bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
+                      <button className="btn text-white bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300">
                         Details <FaArrowRightLong />
                       </button>
                     </Link>
@@ -162,7 +158,7 @@ const AvailableCamps = () => {
           ))}
         </div>
       ) : (
-        <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:pl-20 border ">
+        <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:pl-20">
           {camps?.map((camp) => (
             <div key={camp._id}>
               <div className="max-w-lg  shadow-md dark:bg-gray-50 dark:text-gray-800">

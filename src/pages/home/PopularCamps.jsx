@@ -19,13 +19,16 @@ const PopularCamps = () => {
   }, [axiosPublic]);
 
   return (
-    <div className="py-10 bg-red-50 ">
+    <div className="py-10 bg-base-300">
       <h1 className="text-4xl text-center font-bold">Popular Camps</h1>
       <p className="text-2xl text-center py-2 pb-6">Held on outside of our medical</p>
       <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4 ">
         {sixCamps?.map((camp) => (
-          <div key={camp._id}>
-            <div className="max-w-sm mx-auto shadow-md dark:bg-gray-50 dark:text-gray-800">
+          <div
+           key={camp._id}
+           className="card shadow-xl"
+           >
+            <div className="max-w-sm mx-auto shadow-md">
               <img
                 src={camp.image}
                 alt=""
@@ -36,7 +39,7 @@ const PopularCamps = () => {
                   <h2 className="text-3xl font-semibold tracking-wide">
                     {camp.name}
                   </h2>
-                  <p className="dark:text-gray-800">
+                  <p className="">
                     Curabitur luctus erat nunc, sed ullamcorper erat vestibulum
                     eget.
                   </p>
