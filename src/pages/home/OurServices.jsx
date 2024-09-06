@@ -18,7 +18,7 @@ const OurServices = () => {
     return (
         <div>
             
-            <section className="dark:bg-rose-50 dark:text-gray-800">
+            <section className="bg-base-300 dark:text-gray-800">
                 
             <h1 className="text-2xl text-center  pt-8">Inside our medical these are our service departments</h1>
 	<div className="container max-w-6xl p-6 pb-16 mx-auto ">
@@ -73,7 +73,7 @@ const OurServices = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide1} />
 				</a>
@@ -86,7 +86,7 @@ const OurServices = () => {
 			</article>
             </SwiperSlide>
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide2} />
 				</a>
@@ -99,7 +99,7 @@ const OurServices = () => {
 			</article>
             </SwiperSlide>
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide3} />
 				</a>
@@ -112,7 +112,7 @@ const OurServices = () => {
 			</article>
             </SwiperSlide>
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide4} />
 				</a>
@@ -125,7 +125,7 @@ const OurServices = () => {
 			</article>
             </SwiperSlide>
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide5} />
 				</a>
@@ -138,7 +138,7 @@ const OurServices = () => {
 			</article>
             </SwiperSlide>
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide6} />
 				</a>
@@ -151,7 +151,7 @@ const OurServices = () => {
 			</article>
             </SwiperSlide>
         <SwiperSlide>
-        <article className="flex  lg:w-52 flex-col dark:bg-gray-50">
+        <article className="flex  lg:w-52 flex-col hover:bg-blue-950 hover:text-white">
 				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
 					<img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={slide7} />
 				</a>

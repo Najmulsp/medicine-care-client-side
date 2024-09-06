@@ -31,7 +31,7 @@ const Faq = () => {
     <div>
       <section
         id="appointment"
-        className="p-6 pb-16 dark:bg-gray-100 dark:text-gray-800"
+        className="p-6 pb-16 bg-base-300 dark:text-gray-800"
       >
         <div className="container flex flex-col lg:flex-row">
           <fieldset className="grid grid-cols-4 gap-6 p-6 shadow-sm bg-sky-600">

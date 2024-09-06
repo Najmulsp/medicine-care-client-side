@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { FaArrowRightLong, FaLocationDot } from "react-icons/fa6";
-import { FaAngleDown } from "react-icons/fa";
 import { LuLayoutPanelTop } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
@@ -67,7 +66,7 @@ const AvailableCamps = () => {
     onSubmit={handleSearch}
     className="flex flex-row w-5/12 mx-auto py-6  dark:text-gray-800">
 			<input type="text" name="search" placeholder="Search by name" className="w-3/5 p-3 rounded-l-lg sm:w-2/3 border" />
-			<button type="submit" className="w-2/5 border p-3 font-semibold rounded-r-lg sm:w-1/3 bg-sky-600 dark:text-gray-50 flex justify-center items-center">
+			<button type="submit" className="w-2/5 border p-3 font-semibold rounded-r-lg sm:w-1/3 bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br dark:text-gray-50 flex justify-center items-center">
       <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"

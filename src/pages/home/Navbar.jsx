@@ -70,7 +70,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow dark:bg-base-200 bg-slate-700 py-4 rounded-box w-52 space-y-4"
             >
               {navlinks}
             </ul>
@@ -79,7 +79,7 @@ const Navbar = () => {
           <img src={logo} alt="" className="h-10 w-32"/>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu-horizontal px-1 space-x-4">
             {navlinks}
           </ul>
         </div>
@@ -150,7 +150,7 @@ const Navbar = () => {
                   <li>
                   <button
                 onClick={handleLogout}
-                className="btn w-full text-white bg-yellow-600 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
+                className="btn w-full text-white bg-gradient-to-r from-sky-500 via-sky-400 to-sky-700 hover:bg-gradient-to-br focus:ring-purple-300"
               >
                 Log Out
               </button>

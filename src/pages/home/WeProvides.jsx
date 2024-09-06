@@ -15,8 +15,8 @@ const WeProvides = () => {
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-                <article className="flex flex-col dark:bg-gray-500">
-                <div className="p-6  rounded shadow-md ">
+                <article className="flex flex-col hover:bg-blue-950 hover:text-white dark:bg-gray-500">
+                <div className="p-6 rounded shadow-md ">
                   <div className="flex flex-col items-center justify-center p-4">
                     <LiaFileMedicalAltSolid className="text-5xl text-sky-400" />
                     <h3 className="my-3 ml-3 text-3xl font-semibold">
@@ -30,7 +30,7 @@ const WeProvides = () => {
                   </div>
                   </div>
                 </article>
-                <article className="flex flex-col dark:bg-gray-50">
+                <article className="flex flex-col hover:bg-blue-950 hover:text-white dark:bg-gray-50">
                   <div className="p-6  rounded shadow-md dark:bg-gray-50">
                     <div className="flex flex-col items-center p-4">
                       <TbMedicalCross className="text-5xl text-sky-400" />
@@ -45,7 +45,7 @@ const WeProvides = () => {
                     </div>
                   </div>
                 </article>
-                <article className="flex flex-col dark:bg-gray-50">
+                <article className="flex flex-col hover:bg-blue-950 hover:text-white dark:bg-gray-50">
                   <div className="p-6 col-span-1 rounded shadow-md dark:bg-gray-50">
                     <div className="flex flex-col items-center p-4">
                       <LiaFileMedicalAltSolid className="text-5xl text-sky-400" />
@@ -60,7 +60,7 @@ const WeProvides = () => {
                     </div>
                   </div>
                 </article>
-                <article className="flex flex-col dark:bg-gray-50">
+                <article className="flex flex-col hover:bg-blue-950 hover:text-white dark:bg-gray-50">
                   <div className="p-6 col-span-1 rounded shadow-md dark:bg-gray-50">
                     <div className="flex flex-col items-center p-4">
                       <GiMedicalDrip className="text-5xl text-sky-400" />

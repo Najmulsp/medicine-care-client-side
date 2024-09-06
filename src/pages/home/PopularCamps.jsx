@@ -22,13 +22,13 @@ const PopularCamps = () => {
     <div className="py-10 bg-base-300">
       <h1 className="text-4xl text-center font-bold">Popular Camps</h1>
       <p className="text-2xl text-center py-2 pb-6">Held on outside of our medical</p>
-      <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-4 ">
+      <div className="container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
         {sixCamps?.map((camp) => (
           <div
            key={camp._id}
-           className="card shadow-xl"
+           className="max-w-sm mx-auto hover:bg-blue-950 hover:text-white"
            >
-            <div className="max-w-sm mx-auto shadow-md">
+            <div className=" mx-auto shadow-md">
               <img
                 src={camp.image}
                 alt=""
